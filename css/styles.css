@@ -33,7 +33,7 @@ body, ul
 :root {
     --color-main: #bf8511;
     --color-main-light: #F5DE88;
-    --color-complementary: #28687E;
+    --color-complementary: #538698;
     --color-light: #CECFC1;
     --color-lighter: #F9FAF2;
     --color-dark: #1A2123;
@@ -65,6 +65,10 @@ h3
 h4
 {
     font-size: 2.5em;
+}
+h5
+{
+    font-size: 1.8em;
 }
 
 /*------------------------------------*/
@@ -294,7 +298,6 @@ nav li:hover a
 .section-2-background
 {
     background-color: var(--color-complementary);
-    opacity: 0.8;
     margin-top: 60px;
     margin-bottom: 60px;
 }
@@ -333,6 +336,7 @@ nav li:hover a
 .skills-container
 {
     background-color: var(--color-light);
+    opacity: 0.7;
 }
 
 .skills-container h4
@@ -363,11 +367,21 @@ nav li:hover a
 .footer-background
 {
     background-color: var(--color-dark);
+    padding-bottom: 60px;
 }
 
-.footer-background h3
+.footer-background h3,
+.footer-background h4,
+.footer-background p,
+.footer-background a
 {
+    text-decoration: none;
     color: var(--color-light);
+}
+
+.footer-background a:hover
+{
+    color: var(--color-main);
 }
 
 /*------------------------------------*/
