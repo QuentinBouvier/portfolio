@@ -291,7 +291,7 @@ nav li:hover a
 
 .work-min-container:hover .image-hover
 {
-    display: block;
+    display: none;
     transition: all 1s;
 }
 
@@ -388,12 +388,27 @@ nav li:hover a
 /*    7.0 media queries               */
 /*------------------------------------*/
 
-@media only screen
-and (min-widht: 320px)
-and (max-width: 568px)
+@media screen
+and (max-width: 800px)
 {
+    .banner-title
+    {
+        font-size: 4.1em;
+    }
+    h3
+    {
+        font-size: 3.1em;
+    }
+    .full-width
+    {
+        min-width: 80vw;
+    }
+    .half-width
+    {
+        min-width: 80vw;
+    }
     .third-width
     {
-        min-width: 100%;
+        min-width: 80vw;
     }
 }
