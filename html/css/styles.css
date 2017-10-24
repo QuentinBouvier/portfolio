@@ -291,7 +291,7 @@ nav li:hover a
 
 .work-min-container:hover .image-hover
 {
-    display: block;
+    display: none;
     transition: all 1s;
 }
 
@@ -401,15 +401,14 @@ and (max-width: 800px)
     }
     .full-width
     {
-        max-width: 90vw;
+        min-width: 80vw;
     }
     .half-width
     {
         min-width: 80vw;
-        max-width: 90vw;
     }
     .third-width
     {
-        max-width: 80vw;
+        min-width: 80vw;
     }
 }
