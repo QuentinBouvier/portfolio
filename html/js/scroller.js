@@ -4,12 +4,12 @@ $(document).ready(function()
     selectButton($('[data-menu="0"]'));
 
     //click on navbar links
-    $('body').on('click', '[data-menu]', function()
+    $('body').on('click touchend', '[data-menu]', function()
     {
         scrollToElement($(this), sectionsID);
     });
 
-    $('body').on('click', '[data-navbar="icon"]', function()
+    $('body').on('click touchend', '[data-navbar="icon"]', function()
     {
         scrollToElement($('[data-menu="0"]'), sectionsID);
     });

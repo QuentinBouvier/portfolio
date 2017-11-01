@@ -24,7 +24,7 @@ $(document).ready(function()
     });
 
     // expand menu on navbar button click
-    $('body').on('click', '[data-navbar="button"]', function()
+    $('body').on('click touchend', '[data-navbar="button"]', function()
     {
         expandMenu();
     });
