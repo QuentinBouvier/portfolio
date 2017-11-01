@@ -4,8 +4,6 @@ $(document).ready(function()
     var buttonClass = '.topbar-link';
     var isScrolling = false;
 
-    selectButton($($('.topbar-link')[0]));
-
     //click on navbar links
     $('.topbar-link').on('click', function()
     {
@@ -15,14 +13,14 @@ $(document).ready(function()
     //on scroll event
     $(document).scroll(function()
     {
-        selectButtOnOnScroll(sectionsID);
+        selectButtonOnScroll(sectionsID);
     });
 
     /**
      * Unselect a navigation bar button
-     * buttonsClass: class name of the buttons to handle starting with a dot (.)
-     * buttonActiveClass: class name on an active button
-     * ignoreClass: if you want buttons to be ignored on the bar, set a class name to ignore
+     * @param string buttonsClass class name of the buttons to handle starting with a dot (.)
+     * @param string buttonActiveClass class name on an active button
+     * @param string ignoreClass if you want buttons to be ignored on the bar, set a class name to ignore
      */
     function unselectButtons(buttonsClass, buttonActiveClass, ignoreClass)
     {
@@ -36,7 +34,10 @@ $(document).ready(function()
         });
     }
 
-
+    /**
+     * put class navbar-link-active on selected DOM element
+     * @param  {DOM object} clicked element to put active button class on
+     */
     function selectButton(clicked)
     {
 
@@ -50,8 +51,9 @@ $(document).ready(function()
     }
 
     /**
-     * element: an object of the targeted element
-     * targetsID: An array of the elements ID to be targeted
+     * Scroll the screen to element targetted
+     * @param {DOM element} element     an object of the targeted elements
+     * @param {array}       targetsID   An array of the elements ID to be targeted
      */
     function scrollToElement(element, targetsID)
     {
@@ -66,7 +68,7 @@ $(document).ready(function()
             isScrolling = true;
             $('html, body').animate(
             {
-                scrollTop: $(targetsID[index]).offset().top
+                scrollTop: $(targetsID[index]).offset().top + 1
             }, 250, function()
             {
                 isScrolling = false;
@@ -75,6 +77,10 @@ $(document).ready(function()
         }
     }
 
+    /**
+     * Select the matching button if the scroll index is passed on document
+     * @param  {array} targetsID  Array of string names of elements to markup
+     */
     function selectButtonOnScroll(targetsID)
     {
         if (!isScrolling)
