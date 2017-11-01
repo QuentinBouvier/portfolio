@@ -347,11 +347,12 @@ nav li:hover a
 .skills-list
 {
     position: relative;
-    text-align: justify;
+    text-align: left;
     font-size: 1.2em;
     list-style-type: none;
+    display: inline-block;
     left: 50%;
-    transform: translateX(-65px);
+    transform: translateX(-50%);
     margin-bottom: 55px;
 }
 
