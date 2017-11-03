@@ -1,0 +1,24 @@
+.flex-container
+{
+    display: flex;
+}
+
+.flex-justify-center
+{
+    justify-content: center;
+}
+
+.flex-align-center
+{
+    align-items: center;
+}
+
+.arrows-box
+{
+    width: 300px;
+}
+
+.options-input-number
+{
+    width: 30px;
+}

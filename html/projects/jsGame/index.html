@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le game JS</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <button data-action="reset" type="button" name="button " style="position: fixed; top: 0; left: 0; ">reset local storage</button>
+    <section data-state="optionScreen" class="game-screen hidden">
+        <div class="optionForm">
+            <img src="./images/theguy.png" alt="" style="width: 100px;">
+            <h2>I wanna be the boring grid game</h2>
+            <label>Nombre de cases en largeur <br><input type="number" name="gameWidth" value="10" max="34"></label><br>
+            <label>Nombre de cases en hauteur <br><input type="number" name="gameHeight" value="10" max="15"></label><br>
+            <label>Difficulté : </label><br>
+            <label><input type="radio" name="difficulty" value="70">facile</label>
+            <label><input type="radio" name="difficulty" value="50" checked>moyen</label>
+            <label><input type="radio" name="difficulty" value="25">difficile</label><br>
+            <button data-action="submitOptions" type="button" name="button">Lancer le jeu </button>
+        </div>
+    </section>
+    <section data-state="gameScreen" class="game-screen hidden">
+
+    </section>
+    <section data-state="victoryScreen" class="game-screen hidden">
+        <div>
+            <h2>I wanna be the boring grid game</h2>
+            <br><br>
+            <h1 style="color: red">YOU WON !</h1>
+        </div>
+    </section>
+    <section data-state="defeatScreen" class="game-screen hidden">
+        <div>
+            <h2>I wanna be the boring grid game</h2>
+            <br><br>
+            <h1 style="color: red">YOU LOSE !</h1>
+        </div>
+    </section>
+</body>
+
+</html>

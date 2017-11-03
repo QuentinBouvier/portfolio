@@ -1,0 +1,4 @@
+Redirect Permanent /templates/ /
+Redirect Permanent /pages/ /
+Redirect Permanent /functions/ /
+ErrorDocument 404 /?page=404
