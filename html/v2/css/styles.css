@@ -48,7 +48,7 @@ body
 {
     font-family: 'Roboto Slab', serif;
     font-size: 1em;
-    background: #DEDEDE url('../images/cream_pixels.png') top left repeat;
+    background: #FFF url('../../images/cream_pixels.png') top left repeat;
 }
 
 h2, h3, h4, h5, h6
@@ -149,6 +149,11 @@ div
     margin-left: auto;
 }
 
+.flex-columns
+{
+    flex-direction: column;
+}
+
 /*------------------------------------*/
 /*     3.2 size                       */
 /*------------------------------------*/
@@ -174,10 +179,17 @@ div
     min-width: 260px;
 }
 
+.fifth_width
+{
+    width: 17vw;
+    margin: 30px 1.5vw;
+    min-width: 190px;
+}
+
 .full-height
 {
     min-height: 100vh;
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 /*------------------------------------*/
@@ -387,32 +399,45 @@ nav a
 
 .section-1-background
 {
-    background-color: #F5DE8899;
+    background-color: var(--color-light);
 }
 
 .section-1-background h3
 {
-    margin-top: 79px;
     text-align: center;
 }
 
 .main-work
 {
-    height: 39vw;
-    min-height: 485px;
+    min-height: 100vh
 }
 
 .project-tile
 {
-    background-color: var(--color-lighter);
+    background: var(--color-lighter) url('../../images/paper_bg.png');
+    height: 27vw;
+    box-shadow: 1px 1px 1px #555;
+    min-height: 345px;
+}
+
+.project-title
+{
+    align-self: center;
+    margin: auto 0; /* vertical center */
+}
+
+.project-tile span
+{
+    color: var(--color-dark);
+    opacity: 0.7;
 }
 
 .project-figure
 {
-    margin-top: 12%;
-    margin-left: 13%;
-    width: 74%;
-    height: 69%;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 78%;
     background-color: var(--color-dark)
 }
 
