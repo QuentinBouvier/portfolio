@@ -3,4 +3,7 @@ html/.vscode/
 .vscode/
 .idea/
 projects/
-v2/projects/
+v2/projects/jsGame
+v2/projects/phpGame
+v2/projects/quiz_manager
+v2/projects/sliderJS
