@@ -5,9 +5,10 @@ class worksHandler
     private $_works;
     private $_worksDir;
     private $_tileContDepth;
+    private $_tiles;
     private $_tileArch;
     private $_figureClass;
-    private $_captionClass;
+    private $_thumbnailClass;
     private $_jsonWorks;
     
     /**
@@ -22,64 +23,95 @@ class worksHandler
     {
         $this->_tileContDepth = 2;
         $this->_worksDir = $worksDir;
-        $this->findWorks($worksDir);
-        var_dump($this->_works);
+        $this->_works = $this->toArray($worksDir);
         $this->_tilesClass = [
             "flex-container flex-justify-center flex-wrap main-work", 
             "flex-container flex-columns project-tile fourth-width"
         ];
         $this->_figureClass = "project-figure";
-        $this->_captionClass = "project-caption";
+        $this->_thumbnailClass = "project-tuhmbnail";
         
-        $this->tileTemplate("bonjour", "../images/avatar.jpg", "Avatar dodécaèdre");
-    }
+        $this->generateTiles();
 
-    private function findWorks($dir)
-    {
-        foreach (array_slice(scandir($dir),2) as $cdir) {
-            $this->_works[] = $cdir;
-        }
     }
 
     private function generateTiles()
     {
         foreach ($this->_works as $i => $work) {
-            $this->$_tileArch = $this->tileTemplate();
+            $this->_tiles[] = $this->tileTemplate($i);
+       }
+    }
+
+    private function toArray($dir)
+    {
+        $works = [];
+        foreach (array_slice(scandir($dir),2) as $i => $target) {
+            if (is_dir($dir . $target))
+            {
+                $meta = get_meta_tags($dir . $target . '/preview.html');
+                
+                $works[$i]['title'] = $meta['projecttitle'];
+                $works[$i]['path'] = $dir . $target . '/';
+                $works[$i]['thumbnail'] = $meta['thumbnail'];
+                $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['hasDir'] = true;
+            }
+            else {
+                $meta = get_meta_tags($dir . $target);
+
+                $works[$i]['title'] = $meta['projecttitle'];
+                $works[$i]['thumbnail'] = $meta['thumbnail'];
+                $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['hasDir'] = false;
+            }
+            
         }
+
+        return $works;
     }
 
-    private function populateJson()
+    private function tileTemplate($currentWork)
     {
 
-    }
+        $title = $this->_works[$currentWork]['title'];
+        $figUrl = $this->_works[$currentWork]['thumbnail'];
+        $figAlt = $this->_works[$currentWork]['thumbnailAlt'];
 
-    private function tileTemplate($title, $figUrl, $figAlt)
-    {
         ob_start(); ?>
             
                 <?php
                     for ($i = 0; $i < $this->_tileContDepth; $i++)
                     {
-                        echo "<div class='{$this->_tilesClass[$i]}'>";
+                        echo "<div class='{$this->_tilesClass[$i]}'>\n";
                     }
                 ?>
                 <div class=<?= "'$this->_figureClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
-                <span class=<?= "'$this->_captionClass'"; ?>>
+                <span class=<?= "'$this->_thumbnailClass'"; ?>>
                     <?= $title; ?>
                 </span>
                 <?php
                     for ($i = 0; $i < $this->_tileContDepth; $i++)
                     {
-                        echo "</div>";
+                        echo "</div>\n";
                     }
                 ?>                
             </div>
         <?php
-        $this->_tileArch = ob_get_contents();
+        $tileHtml = ob_get_contents();
         ob_end_clean();
 
-        echo $this->_tileArch;
+        return $tileHtml;
+    }
+
+    /**
+     * Get the value of m_member
+     * 
+     * @return type 
+     */
+    public function getTiles()
+    {
+        return $this->_tiles;
     }
 }
