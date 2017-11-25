@@ -7,9 +7,8 @@ class worksHandler
     private $_tileContDepth;
     private $_tiles;
     private $_tileArch;
-    private $_figureClass;
     private $_thumbnailClass;
-    private $_jsonWorks;
+    private $_captionClass;
     
     /**
      *  tilesClass struct:
@@ -28,8 +27,8 @@ class worksHandler
             "flex-container flex-justify-center flex-wrap main-work", 
             "flex-container flex-columns project-tile fourth-width"
         ];
-        $this->_figureClass = "project-figure";
-        $this->_thumbnailClass = "project-tuhmbnail";
+        $this->_thumbnailClass = "project-thumbnail";
+        $this->_captionClass = "project-caption";
         
         $this->generateTiles();
 
@@ -85,10 +84,10 @@ class worksHandler
                         echo "<div class='{$this->_tilesClass[$i]}'>\n";
                     }
                 ?>
-                <div class=<?= "'$this->_figureClass'"; ?>>
+                <div class=<?= "'$this->_thumbnailClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
-                <span class=<?= "'$this->_thumbnailClass'"; ?>>
+                <span class=<?= "'$this->_captionClass'"; ?>>
                     <?= $title; ?>
                 </span>
                 <?php
