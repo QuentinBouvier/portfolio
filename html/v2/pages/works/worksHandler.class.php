@@ -23,10 +23,7 @@ class worksHandler
         $this->_tileContDepth = 2;
         $this->_worksDir = $worksDir;
         $this->_works = $this->toArray($worksDir);
-        $this->_tilesClass = [
-            "flex-container flex-justify-center flex-wrap main-work", 
-            "flex-container flex-columns project-tile fourth-width"
-        ];
+        $this->_tilesClass = "flex-container flex-columns project-tile fourth-width";
         $this->_thumbnailClass = "project-thumbnail";
         $this->_captionClass = "project-caption";
         
@@ -78,24 +75,14 @@ class worksHandler
 
         ob_start(); ?>
             
-                <?php
-                    for ($i = 0; $i < $this->_tileContDepth; $i++)
-                    {
-                        echo "<div class='{$this->_tilesClass[$i]}'>\n";
-                    }
-                ?>
+
+            <div class='<?= $this->_tilesClass;?>' data-work='<?= $currentWork; ?>'>
                 <div class=<?= "'$this->_thumbnailClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
                 <span class=<?= "'$this->_captionClass'"; ?>>
                     <?= $title; ?>
-                </span>
-                <?php
-                    for ($i = 0; $i < $this->_tileContDepth; $i++)
-                    {
-                        echo "</div>\n";
-                    }
-                ?>                
+                </span>             
             </div>
         <?php
         $tileHtml = ob_get_contents();
@@ -105,9 +92,9 @@ class worksHandler
     }
 
     /**
-     * Get the value of m_member
+     * Get the value of _tiles
      * 
-     * @return type 
+     * @return Array 
      */
     public function getTiles()
     {

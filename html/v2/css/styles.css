@@ -175,8 +175,9 @@ div
 .fourth-width
 {
     width: 21vw;
-    margin: 30px 2vw;
+    margin: 30px 1.8vw;
     min-width: 260px;
+    max-width: 300px;
 }
 
 .fifth_width
@@ -399,7 +400,7 @@ nav a
 
 .section-1-background
 {
-    background-color: var(--color-light);
+    background-color: #CCCCC6;
 }
 
 .section-1-background h3
@@ -411,10 +412,11 @@ nav a
 
 .project-tile
 {
-    background:url('../../images/paper_bg.png');
+    background: url('../../images/paper_bg.png');
     height: 27vw;
-    box-shadow: 1px 1px 1px #555;
     min-height: 345px;
+    max-height: 380px;
+    box-shadow: 1px 1px 1px 1px #999;
 }
 
 .project-caption
