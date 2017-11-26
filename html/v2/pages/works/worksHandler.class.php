@@ -9,6 +9,7 @@ class worksHandler
     private $_tileArch;
     private $_thumbnailClass;
     private $_captionClass;
+    private $_previews;
     
     /**
      *  tilesClass struct:
@@ -89,6 +90,11 @@ class worksHandler
         ob_end_clean();
 
         return $tileHtml;
+    }
+
+    public function generatePreviews()
+    {
+        
     }
 
     /**
