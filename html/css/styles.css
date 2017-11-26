@@ -286,7 +286,7 @@ nav a
 {
     min-width: 60px;
     height: 60px;
-    background: black url('../../images/avatar.jpg') center center no-repeat;
+    background: black url('../images/avatar.jpg') center center no-repeat;
     background-size:cover;
     border-radius: 50%;
 }
