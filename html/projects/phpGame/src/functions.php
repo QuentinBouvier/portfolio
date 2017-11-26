@@ -75,7 +75,7 @@ function defineColor($x, $y, array $playerPos, array $gridSize)
     $playerRelative['x'] = floor(count($colorMatrix) / 2);
     $playerRelative['y'] = floor(count($colorMatrix) / 2);
 
-    var_dump($playerRelative);
+    //var_dump($playerRelative);
 
     return $output;
 }
