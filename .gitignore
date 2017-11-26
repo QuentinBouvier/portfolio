@@ -15,3 +15,6 @@ projects/
 
 /v2/projects/sliderJS/*
 !/v2/projects/sliderJS/preview.html
+
+
+/html/v2/js/typings
