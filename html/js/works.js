@@ -10,12 +10,14 @@ $(document).ready(function() {
 
 });
 
-var idleClass = '';
+var idleClass = 'flex-container flex-columns project-tile fourth-width';
 var miniLowerBarClass = '';
 var activeClass = '';
+var tilesOrder = [];
 
 function dispAllTiles()
 {
     $('[data-work]').each(function(i, v){
+        tilesOrder.push($(this).css('order'));
     });
 }
