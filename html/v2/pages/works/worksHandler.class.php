@@ -144,12 +144,12 @@ class worksHandler
 
     public function output()
     {
-        $output = [];
+        $output = '';
 
         foreach($this->_works as $i => $value)
         {
-            $output[$i][0] = $this->generateTile($i);
-            $output[$i][1] = $this->generatePreview($i);
+            $output .= $this->generateTile($i);
+            $output .= $this->generatePreview($i);
         }
 
         return $output;
