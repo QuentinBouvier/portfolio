@@ -40,25 +40,9 @@ class worksHandler
         $this->_tilesClass = "flex-container flex-columns project-tile fourth-width";
         $this->_thumbnailClass = "project-thumbnail";
         $this->_captionClass = "project-caption";
-        
-        $this->_tiles = $this->generateTiles();
 
     }
 
-    /**
-     * Generate the tiles with the prepared template in generateTiles() function
-     *
-     * @return Array
-     */
-    private function generateTiles()
-    {
-        $tiles = [];
-        foreach ($this->_works as $i => $work) {
-            $tiles[] = $this->tileTemplate($i);
-       }
-
-       return $tiles;
-    }
 
     /**
      * get folder content
@@ -100,22 +84,22 @@ class worksHandler
 
     /**
      * Prepare a template for a tile and returned a formatted tile with the infos got from a properly
-     * populated _work member of the class at index $currentWork
+     * populated _work member of the class at $workIndex
      *
-     * @param Integer $currentWork
+     * @param Integer $workIndex
      * @return String
      */
-    public function tileTemplate($currentWork)
+    private function generateTile($workIndex)
     {
 
-        $title = $this->_works[$currentWork]['title'];
-        $figUrl = $this->_works[$currentWork]['thumbnail'];
-        $figAlt = $this->_works[$currentWork]['thumbnailAlt'];
+        $title = $this->_works[$workIndex]['title'];
+        $figUrl = $this->_works[$workIndex]['thumbnail'];
+        $figAlt = $this->_works[$workIndex]['thumbnailAlt'];
 
         ob_start(); 
         ?>
 
-            <div class='<?= $this->_tilesClass;?>' data-work='<?= $currentWork; ?>'>
+            <div class='<?= $this->_tilesClass;?>' data-work='<?= $workIndex; ?>'>
                 <div class=<?= "'$this->_thumbnailClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
@@ -129,6 +113,46 @@ class worksHandler
         ob_end_clean();
 
         return $tileHtml;
+    }
+
+    /** 
+     * prepare a template for previews
+     * @param Integer $workIndex
+     * 
+     * @return String
+     */ 
+    private function generatePreview($workIndex)
+    {
+        $previewHtml = "";
+        $current = $this->_works[$workIndex];
+
+        $path = ($current['hasDir']) ? $current['path'] . '/preview.html' : $current['path'];
+
+        ob_start();
+        ?>
+        <div class="flex-container flex-justify-center flex-items-center project-preview hidden" data-work-preview="<?= $workIndex; ?>">
+                <div class="project-preview-iframe">
+                    <iframe src="<?= $path; ?>" frameborder="0"></iframe>
+                </div>
+            </div>
+        <?php
+        $previewHtml = ob_get_contents();
+        ob_end_clean();
+
+        return $previewHtml;
+    }
+
+    public function output()
+    {
+        $output = [];
+
+        foreach($this->_works as $i => $value)
+        {
+            $output[$i][0] = $this->generateTile($i);
+            $output[$i][1] = $this->generatePreview($i);
+        }
+
+        return $output;
     }
 
     /**
