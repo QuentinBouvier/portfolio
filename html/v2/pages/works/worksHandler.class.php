@@ -1,45 +1,75 @@
 <?php
 
+
+/**
+ * Get works in projects folder and parse them, generate html tiles for each
+ */
 class worksHandler
 {
-    private $_works;
-    private $_worksDir;
-    private $_tileContDepth;
-    private $_tiles;
-    private $_tileArch;
-    private $_thumbnailClass;
-    private $_captionClass;
-    private $_previews;
-    
     /**
-     *  tilesClass struct:
-     *      lenght = $_tileContDepth
-     *      [0] => flex-container flex-justify-center flex-wrap main-work
-     *      [1] => flex-container flex-columns project-tile fourth-width
-    */
-    private $_tilesClass;    
+     * Works info
+     *
+     * @var Array
+     */
+    private $_works;
+
+    /**
+     * HTML output of tiles
+     *
+     * @var String
+     */
+    private $_tiles;
+
+    /**
+     * CSS class of the tiles thumbnail
+     *
+     * @var Array
+     */
+    private $_thumbnailClass;
+
+    /**
+     * CSS class of the tiles caption
+     *
+     * @var Array
+     */
+    private $_captionClass;
 
     public function __construct(string $worksDir)
     {
-        $this->_tileContDepth = 2;
-        $this->_worksDir = $worksDir;
-        $this->_works = $this->toArray($worksDir);
+        $this->_works = $this->folderToArray($worksDir);
         $this->_tilesClass = "flex-container flex-columns project-tile fourth-width";
         $this->_thumbnailClass = "project-thumbnail";
         $this->_captionClass = "project-caption";
         
-        $this->generateTiles();
+        $this->_tiles = $this->generateTiles();
 
     }
 
+    /**
+     * Generate the tiles with the prepared template in generateTiles() function
+     *
+     * @return Array
+     */
     private function generateTiles()
     {
+        $tiles = [];
         foreach ($this->_works as $i => $work) {
-            $this->_tiles[] = $this->tileTemplate($i);
+            $tiles[] = $this->tileTemplate($i);
        }
+
+       return $tiles;
     }
 
-    private function toArray($dir)
+    /**
+     * get folder content
+     * Store infos for tiles from preview html files in folder
+     * can match a project folder with a preview.html file into it
+     * or a single html file in $dir folder
+     *
+     * @param String $dir
+     * @return Array
+     */
+    private function folderToArray($dir)
     {
         $works = [];
         foreach (array_slice(scandir($dir),2) as $i => $target) {
@@ -57,6 +87,7 @@ class worksHandler
                 $meta = get_meta_tags($dir . $target);
 
                 $works[$i]['title'] = $meta['projecttitle'];
+                $works[$i]['path'] = $dir . $target;
                 $works[$i]['thumbnail'] = $meta['thumbnail'];
                 $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
                 $works[$i]['hasDir'] = false;
@@ -67,15 +98,22 @@ class worksHandler
         return $works;
     }
 
-    private function tileTemplate($currentWork)
+    /**
+     * Prepare a template for a tile and returned a formatted tile with the infos got from a properly
+     * populated _work member of the class at index $currentWork
+     *
+     * @param Integer $currentWork
+     * @return String
+     */
+    public function tileTemplate($currentWork)
     {
 
         $title = $this->_works[$currentWork]['title'];
         $figUrl = $this->_works[$currentWork]['thumbnail'];
         $figAlt = $this->_works[$currentWork]['thumbnailAlt'];
 
-        ob_start(); ?>
-            
+        ob_start(); 
+        ?>
 
             <div class='<?= $this->_tilesClass;?>' data-work='<?= $currentWork; ?>'>
                 <div class=<?= "'$this->_thumbnailClass'"; ?>>
@@ -85,6 +123,7 @@ class worksHandler
                     <?= $title; ?>
                 </span>             
             </div>
+
         <?php
         $tileHtml = ob_get_contents();
         ob_end_clean();
@@ -92,13 +131,9 @@ class worksHandler
         return $tileHtml;
     }
 
-    public function generatePreviews()
-    {
-        
-    }
-
     /**
      * Get the value of _tiles
+     * Used for final display
      * 
      * @return Array 
      */
