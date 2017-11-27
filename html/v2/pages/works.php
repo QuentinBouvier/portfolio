@@ -12,11 +12,9 @@ $works = new worksHandler("./projects/");
         <div class="flex-container flex-justify-center flex-wrap main-work"></div>
 
             <?php
-            foreach($works->getTiles() as $project)
-            {
-                echo $project;
-            }
+                echo $works->output();            
             ?>
+            
             <script src="../js/works.js"></script>
         </div>
     </section>
