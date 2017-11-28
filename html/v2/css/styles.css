@@ -446,22 +446,42 @@ nav a
     margin: auto;
 }
 
-.image-hover
+[data-work].active
 {
-    display: none;
-    height: 28vw;
-    min-height: 336px;
-    min-width: 336px;
-    position: absolute;
-    background-color: lightgrey;
-    opacity: 0.5;
-    z-index: 998;
+    flex-basis: 20%;
 }
 
-.work-min-container:hover .image-hover
+[data-work].min
+{
+    flex-basis: 1%;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    height: 66px;
+    min-height: 66px;
+    max-height: 66px;
+}
+
+[data-work].min .project-caption
 {
     display: none;
-    transition: all 1s;
+}
+
+.project-preview
+{
+    flex-basis: 80%;
+    max-width: 60vw;
+    height: 70vh;
+    background: var(--color-lighter) url('../../images/paper_bg.png');
+}
+
+.project-preview-iframe
+{
+    width: 97%;
+    height: 97%;
+
+    background-color: grey;
+
 }
 
 .section-2-background
