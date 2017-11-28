@@ -2,7 +2,28 @@
 
 
 /**
- * Get works in projects folder and parse them, generate html tiles for each
+ * Get works in projects folder and parse them, generate html tiles and previews for each
+ * 
+ * the folder is passed with constructor args
+ * It must me sorted like this:
+ *  $worksDir/
+ *  ├── projectFolder1/
+ *  |   └── preview.html
+ *  |
+ *  ├── someProject.html
+ *  |
+ *  ├── projectFolder2/
+ *  |   └── preview.html
+ *  |
+ *  ├── projectFolder3/
+ *  |   └── preview.html
+ *  | 
+ *  └── someProject2.html
+ * 
+ * Projects html and previews.html must have <meta> with name: 
+ *      projecttitle,
+ *      thumbnail (value: url to an image),
+ *      thumbnailalt
  */
 class worksHandler
 {
@@ -40,7 +61,6 @@ class worksHandler
         $this->_tilesClass = "flex-container flex-columns project-tile fourth-width";
         $this->_thumbnailClass = "project-thumbnail";
         $this->_captionClass = "project-caption";
-
     }
 
 
@@ -65,6 +85,7 @@ class worksHandler
                 $works[$i]['path'] = $dir . $target . '/';
                 $works[$i]['thumbnail'] = $meta['thumbnail'];
                 $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['order'] = $meta['order'];
                 $works[$i]['hasDir'] = true;
             }
             else {
@@ -74,6 +95,7 @@ class worksHandler
                 $works[$i]['path'] = $dir . $target;
                 $works[$i]['thumbnail'] = $meta['thumbnail'];
                 $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['order'] = $meta['order'];
                 $works[$i]['hasDir'] = false;
             }
             
@@ -95,11 +117,12 @@ class worksHandler
         $title = $this->_works[$workIndex]['title'];
         $figUrl = $this->_works[$workIndex]['thumbnail'];
         $figAlt = $this->_works[$workIndex]['thumbnailAlt'];
+        $order = $this->_works[$workIndex]['order'];
 
         ob_start(); 
         ?>
 
-            <div class='<?= $this->_tilesClass;?>' data-work='<?= $workIndex; ?>'>
+            <div class="<?= $this->_tilesClass;?>" data-work="<?= $workIndex; ?>" style="order: <?= $order; ?>">
                 <div class=<?= "'$this->_thumbnailClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
@@ -125,13 +148,15 @@ class worksHandler
     {
         $previewHtml = "";
         $current = $this->_works[$workIndex];
+        $order = $current['order'] + 5;
 
         $path = ($current['hasDir']) ? $current['path'] . '/preview.html' : $current['path'];
 
         ob_start();
         ?>
-        <div class="flex-container flex-justify-center flex-items-center project-preview hidden" data-work-preview="<?= $workIndex; ?>">
+        <div class="flex-container flex-justify-center flex-items-center project-preview hidden" data-work-preview="<?= $workIndex; ?>" style="order: <?= $order; ?>">
                 <div class="project-preview-iframe">
+                    <?= $workIndex; ?>
                     <iframe src="<?= $path; ?>" frameborder="0"></iframe>
                 </div>
             </div>
