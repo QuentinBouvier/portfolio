@@ -15,6 +15,6 @@ $works = new worksHandler("./projects/");
                 echo $works->output();            
             ?>
             
-            <script src="../js/works.js"></script>
+            <script src="./js/works.js"></script>
         </div>
     </section>
