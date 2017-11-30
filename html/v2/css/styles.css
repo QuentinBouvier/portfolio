@@ -470,20 +470,12 @@ nav a
 
 .project-preview
 {
-    flex-basis: 100%;
-    width: 0px;
-    height: 0px;
     background: var(--color-lighter) url('../../images/paper_bg.png');
     bottom: 0;
     left: 0;
-}
-
-.project-preview.active
-{
-    min-width: 345px;
-    max-width: 70vw;
-    height: 70vh;
-    transition: 2s;
+    width: 0;
+    height: 0;
+    transition: .8s all;
 }
 
 .project-preview-iframe
@@ -491,6 +483,12 @@ nav a
     width: 97%;
     height: 97%;
     background-color: grey;
+}
+
+break
+{
+    flex-basis: 100%;
+    order: -1;
 }
 
 .section-2-background

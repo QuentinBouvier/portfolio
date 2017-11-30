@@ -11,6 +11,7 @@ $(document).ready(function() {
 });
 
 var originalOrder = [];
+var firstUse = true;
 
 function worksInit()
 {
@@ -32,36 +33,60 @@ function dispAllTiles()
 
 function activate(target)
 {
-    var clicked;
+    timeout = (firstUse) ? 0 : 1000;
+
     $('[data-work]').each(function(i, v) 
     {
-        if ($(this).data('work') != target)
-        {            
-            $(this).css('order', originalOrder[i]);
-            $(this).removeClass('active');
-            $(this).addClass('min');
-        }
-        else
-        {            
-            $(this).css('order', '-2');
-            $(this).addClass('active');
-            $(this).removeClass('min');
-        }
-    });
+        var current = $(this);
 
-    $('[data-work-preview]').each(function(i, v) {
-        
-        if ($(this).data('work-preview') != target)
-        {            
-            $(this).css('order', originalOrder[i] + parseInt(5));
-            $(this).addClass('hidden');
-            $(this).removeClass('active');
+        if (current.data('work') != target)
+        {
+            setTimeout(function(){
+                current.css('order', originalOrder[i]);
+                current.removeClass('active');
+                current.addClass('min');
+            }, timeout);
         }
         else
         {
-            $(this).css('order', '-1');
-            $(this).removeClass('hidden');
-            $(this).addClass('active');
+            setTimeout(function() {
+                current.css('order', '-3');
+                current.addClass('active');
+                current.removeClass('min');
+            }, timeout);
         }
     });
+
+    $('[data-work-preview]').each(function(i, v) 
+    {
+        var current = $(this);
+
+        if (current.data('work-preview') != target)
+        {
+            current.attr('style', '');
+            setTimeout(function() 
+            {
+                current.css('order', parseInt(originalOrder[i]) + parseInt(5));
+            }, timeout);
+        }
+        else
+        {
+            
+            $('break').remove();
+            $('<break></break>').insertAfter(current);
+
+            setTimeout(function(){
+                // current.css('order', '-2');   
+
+                current.css({
+                    "order": "-2",
+                    "width": "70vw",
+                    "height": "70vh",
+                    "min-width": "345px"
+                })
+            }, timeout);
+        }
+    });
+
+    firstUse = false;
 }
