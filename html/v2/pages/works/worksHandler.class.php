@@ -155,8 +155,7 @@ class worksHandler
         ob_start();
         ?>
         <div class="flex-container flex-justify-center flex-items-center project-preview" data-work-preview="<?= $workIndex; ?>" style="order: <?= $order; ?>">
-                <div class="project-preview-iframe">
-                    <?= $workIndex; ?>
+                <div class="project-preview-iframe">                    
                     <iframe src="<?= $path; ?>" frameborder="0"></iframe>
                 </div>
             </div>
