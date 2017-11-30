@@ -2,7 +2,7 @@
 html/.vscode/
 .vscode/
 .idea/
-projects/
+
 
 html/v2/js/typings
 /js/typings
@@ -10,23 +10,23 @@ html/v2/js/typings
 v2/projects/jsGame/*
 !v2/projects/jsGame/preview.html
 
-/v2/projects/phpGame/*
+v2/projects/phpGame/*
 !/v2/projects/phpGame/preview.html
 
-/v2/projects/quiz_manager/*
+v2/projects/quiz_manager/*
 !/v2/projects/quiz_manager/preview.html
 
-/projects/sliderJS/*
+projects/sliderJS/*
 !/projects/sliderJS/preview.html
 
-/projects/jsGame/*
+projects/jsGame/*
 !/projects/jsGame/preview.html
 
-/projects/phpGame/*
+projects/phpGame/*
 !/projects/phpGame/preview.html
 
-/projects/quiz_manager/*
+projects/quiz_manager/*
 !/projects/quiz_manager/preview.html
 
-/projects/sliderJS/*
+projects/sliderJS/*
 !/projects/sliderJS/preview.html
