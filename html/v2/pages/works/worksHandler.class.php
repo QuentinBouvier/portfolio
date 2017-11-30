@@ -150,7 +150,7 @@ class worksHandler
         $current = $this->_works[$workIndex];
         $order = $current['order'] + 5;
 
-        $path = ($current['hasDir']) ? $current['path'] . '/preview.html' : $current['path'];
+        $path = ($current['hasDir']) ? $current['path'] . 'preview.html' : $current['path'];
 
         ob_start();
         ?>
