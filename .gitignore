@@ -7,16 +7,16 @@ html/.vscode/
 html/v2/js/typings
 /js/typings
 
-v2/projects/jsGame/*
+html/v2/projects/jsGame/*
 !v2/projects/jsGame/preview.html
 
-v2/projects/phpGame/*
+html/v2/projects/phpGame/*
 !/v2/projects/phpGame/preview.html
 
-v2/projects/quiz_manager/*
+html/v2/projects/quiz_manager/*
 !/v2/projects/quiz_manager/preview.html
 
-projects/sliderJS/*
+html/projects/sliderJS/*
 !/projects/sliderJS/preview.html
 
 projects/jsGame/*
