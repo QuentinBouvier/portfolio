@@ -70,8 +70,7 @@ function activate(target)
             }, timeout);
         }
         else
-        {
-            
+        {       
             $('break').remove();
             $('<break></break>').insertAfter(current);
 
