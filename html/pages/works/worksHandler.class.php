@@ -1,44 +1,79 @@
 <?php
 
+
+/**
+ * Get works in projects folder and parse them, generate html tiles and previews for each
+ * 
+ * the folder is passed with constructor args
+ * It must me sorted like this:
+ *  $worksDir/
+ *  ├── projectFolder1/
+ *  |   └── preview.html
+ *  |
+ *  ├── someProject.html
+ *  |
+ *  ├── projectFolder2/
+ *  |   └── preview.html
+ *  |
+ *  ├── projectFolder3/
+ *  |   └── preview.html
+ *  | 
+ *  └── someProject2.html
+ * 
+ * Projects html and previews.html must have <meta> with name: 
+ *      projecttitle,
+ *      thumbnail (value: url to an image),
+ *      thumbnailalt
+ */
 class worksHandler
 {
-    private $_works;
-    private $_worksDir;
-    private $_tileContDepth;
-    private $_tiles;
-    private $_tileArch;
-    private $_thumbnailClass;
-    private $_captionClass;
-    
     /**
-     *  tilesClass struct:
-     *      lenght = $_tileContDepth
-     *      [0] => flex-container flex-justify-center flex-wrap main-work
-     *      [1] => flex-container flex-columns project-tile fourth-width
-    */
-    private $_tilesClass;    
+     * Works info
+     *
+     * @var Array
+     */
+    private $_works;
+
+    /**
+     * HTML output of tiles
+     *
+     * @var String
+     */
+    private $_tiles;
+
+    /**
+     * CSS class of the tiles thumbnail
+     *
+     * @var Array
+     */
+    private $_thumbnailClass;
+
+    /**
+     * CSS class of the tiles caption
+     *
+     * @var Array
+     */
+    private $_captionClass;
 
     public function __construct(string $worksDir)
     {
-        $this->_tileContDepth = 2;
-        $this->_worksDir = $worksDir;
-        $this->_works = $this->toArray($worksDir);
+        $this->_works = $this->folderToArray($worksDir);
         $this->_tilesClass = "flex-container flex-columns project-tile fourth-width";
         $this->_thumbnailClass = "project-thumbnail";
         $this->_captionClass = "project-caption";
-        
-        $this->generateTiles();
-
     }
 
-    private function generateTiles()
-    {
-        foreach ($this->_works as $i => $work) {
-            $this->_tiles[] = $this->tileTemplate($i);
-       }
-    }
 
-    private function toArray($dir)
+    /**
+     * get folder content
+     * Store infos for tiles from preview html files in folder
+     * can match a project folder with a preview.html file into it
+     * or a single html file in $dir folder
+     *
+     * @param String $dir
+     * @return Array
+     */
+    private function folderToArray($dir)
     {
         $works = [];
         foreach (array_slice(scandir($dir),2) as $i => $target) {
@@ -50,14 +85,17 @@ class worksHandler
                 $works[$i]['path'] = $dir . $target . '/';
                 $works[$i]['thumbnail'] = $meta['thumbnail'];
                 $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['order'] = $meta['order'];
                 $works[$i]['hasDir'] = true;
             }
             else {
                 $meta = get_meta_tags($dir . $target);
 
                 $works[$i]['title'] = $meta['projecttitle'];
+                $works[$i]['path'] = $dir . $target;
                 $works[$i]['thumbnail'] = $meta['thumbnail'];
                 $works[$i]['thumbnailAlt'] = $meta['thumbnailalt'];
+                $works[$i]['order'] = $meta['order'];
                 $works[$i]['hasDir'] = false;
             }
             
@@ -66,17 +104,25 @@ class worksHandler
         return $works;
     }
 
-    private function tileTemplate($currentWork)
+    /**
+     * Prepare a template for a tile and returned a formatted tile with the infos got from a properly
+     * populated _work member of the class at $workIndex
+     *
+     * @param Integer $workIndex
+     * @return String
+     */
+    private function generateTile($workIndex)
     {
 
-        $title = $this->_works[$currentWork]['title'];
-        $figUrl = $this->_works[$currentWork]['thumbnail'];
-        $figAlt = $this->_works[$currentWork]['thumbnailAlt'];
+        $title = $this->_works[$workIndex]['title'];
+        $figUrl = $this->_works[$workIndex]['thumbnail'];
+        $figAlt = $this->_works[$workIndex]['thumbnailAlt'];
+        $order = $this->_works[$workIndex]['order'];
 
-        ob_start(); ?>
-            
+        ob_start(); 
+        ?>
 
-            <div class='<?= $this->_tilesClass;?>' data-work='<?= $currentWork; ?>'>
+            <div class="<?= $this->_tilesClass;?>" data-work="<?= $workIndex; ?>" style="order: <?= $order; ?>">
                 <div class=<?= "'$this->_thumbnailClass'"; ?>>
                     <img src="<?= $figUrl; ?>" alt="<?= $figAlt; ?>">
                 </div>
@@ -84,6 +130,7 @@ class worksHandler
                     <?= $title; ?>
                 </span>             
             </div>
+
         <?php
         $tileHtml = ob_get_contents();
         ob_end_clean();
@@ -91,8 +138,50 @@ class worksHandler
         return $tileHtml;
     }
 
+    /** 
+     * prepare a template for previews
+     * @param Integer $workIndex
+     * 
+     * @return String
+     */ 
+    private function generatePreview($workIndex)
+    {
+        $previewHtml = "";
+        $current = $this->_works[$workIndex];
+        $order = $current['order'] + 5;
+
+        $path = ($current['hasDir']) ? $current['path'] . 'preview.html' : $current['path'];
+
+        ob_start();
+        ?>
+        <div class="flex-container flex-justify-center flex-items-center project-preview" data-work-preview="<?= $workIndex; ?>" style="order: <?= $order; ?>">
+                <div class="project-preview-iframe">                    
+                    <iframe src="<?= $path; ?>" frameborder="0"></iframe>
+                </div>
+            </div>
+        <?php
+        $previewHtml = ob_get_contents();
+        ob_end_clean();
+
+        return $previewHtml;
+    }
+
+    public function output()
+    {
+        $output = '';
+
+        foreach($this->_works as $i => $value)
+        {
+            $output .= $this->generateTile($i);
+            $output .= $this->generatePreview($i);
+        }
+
+        return $output;
+    }
+
     /**
      * Get the value of _tiles
+     * Used for final display
      * 
      * @return Array 
      */
