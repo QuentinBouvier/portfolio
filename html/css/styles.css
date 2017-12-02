@@ -48,7 +48,7 @@ body
 {
     font-family: 'Roboto Slab', serif;
     font-size: 1em;
-    background: #FFF url('../../images/cream_pixels.png') top left repeat;
+    background: #FFF url('../images/cream_pixels.png') top left repeat;
 }
 
 h2, h3, h4, h5, h6
@@ -286,7 +286,7 @@ nav a
 {
     min-width: 60px;
     height: 60px;
-    background: black url('../../images/avatar.jpg') center center no-repeat;
+    background: black url('../images/avatar.jpg') center center no-repeat;
     background-size:cover;
     border-radius: 50%;
 }
@@ -414,11 +414,12 @@ nav a
 
 .project-tile
 {
-    background: url('../../images/paper_bg.png');
+    background: url('../images/paper_bg.png');
     height: 27vw;
     min-height: 345px;
     max-height: 380px;
     box-shadow: 1px 1px 1px 1px #999;
+    cursor: pointer;
 }
 
 .project-caption
@@ -470,7 +471,7 @@ nav a
 
 .project-preview
 {
-    background: var(--color-lighter) url('../../images/paper_bg.png');
+    background: var(--color-lighter) url('../images/paper_bg.png');
     bottom: 0;
     left: 0;
     width: 0;
