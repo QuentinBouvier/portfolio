@@ -72,14 +72,13 @@ function activate(target)
         else
         {
             
-            $('break').remove();
-            $('<break></break>').insertAfter(current);
+            current.css('order', '-2');
 
             setTimeout(function(){
-                // current.css('order', '-2');   
+                $('break').remove();
+                $('<break></break>').insertAfter(current);
 
                 current.css({
-                    "order": "-2",
                     "width": "70vw",
                     "height": "70vh",
                     "min-width": "345px"
@@ -89,4 +88,11 @@ function activate(target)
     });
 
     firstUse = false;
+}
+
+function resetWorks()
+{
+
+
+    firstUse = true;
 }
