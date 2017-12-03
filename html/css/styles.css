@@ -256,12 +256,15 @@ nav li
     padding: 10px 10px;
     margin: 5px;
     width: 65px;
-    border-radius: 15px;
+    border-radius: 4px;
+    border: 2px solid #0000;
 }
 
 .navbar-link-active
 {
-    background-color: var(--color-main);
+    /* background-color: var(--color-main); */
+    border: 2px solid var(--color-light);
+    box-shadow: 0px 0px 3px var(--color-main-light);
 }
 
 .topbar-link:hover a, .topbar-link:hover
@@ -559,6 +562,8 @@ break
     list-style-type: none;
     display: inline-block;
     margin-bottom: 55px;
+    margin: auto;
+    padding-bottom: 50px;
 }
 
 .skills-container .courses p
