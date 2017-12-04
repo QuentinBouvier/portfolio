@@ -20,6 +20,10 @@ function worksInit()
     $('[data-work]').on('click', function() {
         activate($(this).data('work'));
     });
+
+    $('.closing-cross').on('click', function() {
+        resetWorks();
+    });
 }
 
 function dispAllTiles()
@@ -63,9 +67,10 @@ function activate(target)
 
         if (current.data('work-preview') != target)
         {
-            current.attr('style', '');
+            current.attr('style', 'order: -2;');
             setTimeout(function() 
             {
+                current.removeClass('active');
                 current.css('order', parseInt(originalOrder[i]) + parseInt(5));
             }, timeout);
         }
@@ -73,11 +78,11 @@ function activate(target)
         {
             
             current.css('order', '-2');
+            $('break').remove();
+            $('<break></break>').insertAfter(current);
 
-            setTimeout(function(){
-                $('break').remove();
-                $('<break></break>').insertAfter(current);
-
+            setTimeout(function() {                
+                current.addClass('active');
                 current.css({
                     "width": "70vw",
                     "height": "70vh",
@@ -92,7 +97,30 @@ function activate(target)
 
 function resetWorks()
 {
+    
+    $('[data-work]').each(function(i, v) 
+    {
+        var current = $(this);
+        
+        setTimeout(function() {
+            current.css('order', originalOrder[i]);
+            current.removeClass('active');
+            current.removeClass('min');
+        }, 1000);
+    });
 
+    $('[data-work-preview]').each(function(i, v) 
+    {
+        $(this).attr('style', '');
+        $(this).removeClass('active');
+        $(this).css('order', parseInt(originalOrder[i]) + parseInt(5));
+
+    });
+
+    setTimeout(function() 
+    {
+        $('break').remove();
+    }, 1000);
 
     firstUse = true;
 }
