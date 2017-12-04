@@ -352,7 +352,6 @@ nav a
 .cube
 {
     position: absolute;
-    
 }
 
 .banner-title
@@ -605,6 +604,9 @@ and (max-width: 800px)
     .banner-title
     {
         font-size: 4.1em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
     h3
     {
