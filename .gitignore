@@ -8,15 +8,9 @@ html/projects/*
 html/js/typings/
 
 html/projects/jsGame/*
-!v2/projects/jsGame/preview.html
 
 html/v2/projects/phpGame/*
-!/v2/projects/phpGame/preview.html
 
 html/v2/projects/quiz_manager/*
-!/v2/projects/quiz_manager/preview.html
 
 html/projects/sliderJS/*
-!/projects/sliderJS/preview.html
-
-html/projects/sliderJS/index.html
