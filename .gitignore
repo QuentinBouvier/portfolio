@@ -2,15 +2,18 @@
 html/.vscode/
 .vscode/
 .idea/
-html/projects/*
 
 
 html/js/typings/
 
 html/projects/jsGame/*
+!html/projects/jsGame/preview.html
 
-html/v2/projects/phpGame/*
+html/projects/phpGame/*
+!html/projects/phpGame/preview.html
 
-html/v2/projects/quiz_manager/*
+html/projects/quiz_manager/*
+!html/projects/quiz_manager/preview.html
 
 html/projects/sliderJS/*
+!html/projects/sliderJS/preview.html
