@@ -377,7 +377,7 @@ nav a
 {
     padding: 0;
     width: auto;
-    margin-right: 30px;
+    
 }
 
 .social-icon .topbar-link
@@ -385,6 +385,10 @@ nav a
     margin: 0 5px;
 }
 
+.social-full
+{
+    margin-right: 30px;
+}
 /*------------------------------------*/
 /*    5.0 content                     */
 /*------------------------------------*/
