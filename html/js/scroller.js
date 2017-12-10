@@ -101,13 +101,11 @@ function selectButtonOnScroll(targetsID)
         $.each(targetsID, function(index, value)
         {
             var nextOffset = $(targetsID[index]).offset().top + $(targetsID[index]).height();
-            if (($(document).scrollTop() >= $(targetsID[index]).offset().top &&
-                    $(document).scrollTop() < nextOffset) && !$('[data-menu="' + index + '"]').hasClass('navbar-link-active'))
+            if (($(document).scrollTop() >= $(targetsID[index]).offset().top - 1 &&
+                $(document).scrollTop() < nextOffset) && !$('[data-menu="' + index + '"]').hasClass('navbar-link-active'))
             {
                 selectButton($('[data-menu="' + index + '"]'));
             }
         });
     }
 }
-
-//});
