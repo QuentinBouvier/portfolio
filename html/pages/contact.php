@@ -11,6 +11,7 @@ if (isset($_POST["submit"]))
     if (!empty($_POST["name"]))
     {
         $name = $_POST["name"];
+        $_SESSION["contactName"] = $name;
     }
     else {
         $error .= "<li>Merci de renseigner un nom.</li>";
@@ -23,6 +24,7 @@ if (isset($_POST["submit"]))
             $error .= "<li>Merci de renseigner une adresse mail valide.</li>";
         }
         $mail = $_POST["mail"];
+        $_SESSION["contactMail"] = $mail;
     }
     else 
     {
@@ -36,6 +38,7 @@ if (isset($_POST["submit"]))
             $error .= "<li>Merci de renseigner un n° de téléphone valide <br> (10 chiffres, avec ou sans espaces tous les 2 chiffres)</li>";
         }
         $phone = $_POST["phone"];
+        $_SESSION["contactPhone"] = $phone;
     }
     else {
         $phone = "Non renseigné";
@@ -44,10 +47,16 @@ if (isset($_POST["submit"]))
     if (!empty($_POST["content"]))
     {
         $content = $_POST["content"];
+        $_SESSION["contactContent"] = $content;
     }
     else 
     {
         $error .= "<li>Veuillez penser à adresser un message.</li>";
+    }
+
+    if (empty($_POST["captcha"]) || $_POST["captcha"] != $_SESSION["code"])
+    {
+        $error .= "<li>Captcha incorrect.</li>";
     }
 
     if (empty($error))
