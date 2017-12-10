@@ -1,22 +1,17 @@
 <footer id="contact">
     <div class="footer-background">
-        <h3>Contact</h3>
-        <h4>Quentin Bouvier</h4>
-        <a href="mailto:quentin (point) bouvier31 (at) laposte (point) net" subject="webdev.babbleprod.com">Envoyer un mail</a>
+        <h3>Me contacter: </h3>
+        <form class="contact-form" action="../pages/mail.php" method="post">
+            <label><input type="text" name="name" placeholder="Votre nom"></label>
+            <label><input type="text" name="contact" placeholder="Addresse mail ou n° de téléphone"></label>
+            <label><textarea name="content"= cols="30" rows="10" placeholder="Votre message"></textarea></label>
+            <label><input type="submit" name ="submit" value="Envoyer"></label>
+        </form>
     </div>
 </footer>
 
 <script type="text/javascript" src="./js/burger.js"></script>
 <script type="text/javascript" src="./js/scroller.js"></script>
 <script type="text/javascript" src="./js/slider.js"></script>
-<!-- <script type="text/javascript">
-    $(document).ready(function()
-    {
-        selectButton($($('.topbar-link')[0]));
-        burgerize();
-    });
-
-</script> -->
-</body>
 
 </html>

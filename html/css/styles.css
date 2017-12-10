@@ -592,6 +592,8 @@ break
 {
     background-color: var(--color-dark);
     padding-bottom: 60px;
+    height: 100vh;
+    margin-bottom: -60px;
 }
 
 .footer-background h3,
@@ -603,9 +605,30 @@ break
     color: var(--color-light);
 }
 
+.footer-background h3
+{
+}
+
 .footer-background a:hover
 {
     color: var(--color-main);
+}
+
+.contact-form
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+}
+
+.contact-form input[type="text"]
+{
+    width: 100%;
+}
+
+.contact-form textarea
+{
+    width: 100%;
 }
 
 /*------------------------------------*/
