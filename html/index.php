@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //template
 require_once("./templates/head.html");
@@ -11,4 +12,4 @@ require_once("./pages/works.php");
 require_once("./pages/CV.html");
 
 // template
-require_once("./templates/foot.html");
+require_once("./templates/foot.php");
