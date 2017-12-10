@@ -100,8 +100,9 @@ function selectButtonOnScroll(targetsID)
         //position is
         $.each(targetsID, function(index, value)
         {
+            var nextOffset = $(targetsID[index]).offset().top + $(targetsID[index]).height();
             if (($(document).scrollTop() >= $(targetsID[index]).offset().top &&
-                    $(document).scrollTop() < $(targetsID[index + 1]).offset().top) && !$('[data-menu="' + index + '"]').hasClass('navbar-link-active'))
+                    $(document).scrollTop() < nextOffset) && !$('[data-menu="' + index + '"]').hasClass('navbar-link-active'))
             {
                 selectButton($('[data-menu="' + index + '"]'));
             }
