@@ -4,29 +4,16 @@ html/.vscode/
 .idea/
 
 
-html/v2/js/typings
-/js/typings
+html/js/typings/
 
-html/v2/projects/jsGame/*
-!v2/projects/jsGame/preview.html
+html/projects/jsGame/*
+!html/projects/jsGame/preview.html
 
-html/v2/projects/phpGame/*
-!/v2/projects/phpGame/preview.html
+html/projects/phpGame/*
+!html/projects/phpGame/preview.html
 
-html/v2/projects/quiz_manager/*
-!/v2/projects/quiz_manager/preview.html
+html/projects/quiz_manager/*
+!html/projects/quiz_manager/preview.html
 
 html/projects/sliderJS/*
-!/projects/sliderJS/preview.html
-
-projects/jsGame/*
-!/projects/jsGame/preview.html
-
-projects/phpGame/*
-!/projects/phpGame/preview.html
-
-projects/quiz_manager/*
-!/projects/quiz_manager/preview.html
-
-projects/sliderJS/*
-!/projects/sliderJS/preview.html
+!html/projects/sliderJS/preview.html
