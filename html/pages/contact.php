@@ -57,6 +57,7 @@ if (isset($_POST["submit"]))
     if (empty($_POST["captcha"]) || $_POST["captcha"] != $_SESSION["code"])
     {
         $error .= "<li>Captcha incorrect.</li>";
+        unset($_SESSION["captcha"]);
     }
 
     if (empty($error))

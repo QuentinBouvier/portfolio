@@ -618,6 +618,7 @@ break
 .contact-form
 {
     max-width: 50vw;
+    margin-bottom: 60px;
 }
 
 .contact-form input[type="text"], 
