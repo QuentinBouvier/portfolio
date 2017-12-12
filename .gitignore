@@ -3,17 +3,17 @@ html/.vscode/
 .vscode/
 .idea/
 
+html/projects/sliderJS/*
+!html/projects/sliderJS/preview.html
 
-html/js/typings/
-
-html/projects/jsGame/*
+projects/jsGame/*
 !html/projects/jsGame/preview.html
 
-html/projects/phpGame/*
+projects/phpGame/*
 !html/projects/phpGame/preview.html
 
-html/projects/quiz_manager/*
+projects/quiz_manager/*
 !html/projects/quiz_manager/preview.html
 
-html/projects/sliderJS/*
+projects/sliderJS/*
 !html/projects/sliderJS/preview.html
