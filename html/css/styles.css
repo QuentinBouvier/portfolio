@@ -461,7 +461,7 @@ nav a
 {
     flex-basis: 20%;
     margin-top: auto;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .closing-cross
@@ -623,6 +623,7 @@ break
 .contact-form
 {
     max-width: 50vw;
+    margin-bottom: 60px;
 }
 
 .contact-form input[type="text"], 
@@ -729,5 +730,27 @@ and (max-width: 800px)
     .social-icon
     {
         margin-right: 0;
+    }
+
+    .project-tile
+    {
+        margin: 0 5px;
+        margin-bottom: 30px !important;
+    }
+
+    .project-preview.active
+    {
+        height: auto !important;
+        margin-bottom: 30px;
+    }
+    
+    .project-preview.active .project-preview-iframe
+    {        
+        margin: 0 20px;
+    }
+
+    .project-preview.active iframe
+    {
+        height: 100vh;
     }
 }

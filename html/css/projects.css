@@ -1,0 +1,54 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    font-family: Lora, times, serif;
+    font-size: 1em;
+    background-color: #EEE;
+}
+
+h1, h3
+{
+    font-family: Lato, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+h1
+{
+    font-size: 3em;
+}
+
+h3
+{
+    font-size: 1.9em;
+    text-decoration: underline;
+}
+
+p, li
+{
+    font-size: 1.2em;
+}
+
+ul
+{
+    font-size: 1em;
+    margin: 0 0 0 3em;
+    list-style-type: circle;
+}
+
+.sub-list
+{
+    font-size: 16px;
+}
+
+a
+{
+    font-size: 1.12em;
+    color: #0055b6;
+    text-decoration: underline;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
