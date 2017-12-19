@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="projectTitle" content="CRUD laravel">
+    <meta name="thumbnail" content="./pages/works/validationThumb.jpg">
+    <meta name="thumbnailAlt" content="Projet de validation du DWM8">
+    <meta name="order" content="3">
+    
+    <title>Validation DWM 8</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Lora" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/projects.css">
+</head>
+<body>
+
+    <h1>Projet de validation de la formation DWM8</h1>
+
+    <a href="validation.quentinbouvier.fr" target="_blank">Consulter</a>
+    <a href="https://github.com/QuentinBouvier/validationDWM8" target="_blank">Git repo</a>
+    <p>Projet de validation de la formation Développeur Web de It-akademy, réalisé en 15h.</p>
+    <p>Thème proposé: un magasin de  musique. Thème choisi: MA collection de guitares</p>
+    <h3>La demande:</h3>
+    <ul>
+        <li>Un CRUD (create, read, update, delete) codé grâce à Laravel 5, utilisant une DB MySql</li>
+        <li>La base de donnée doit contenir au moins une relation simple &lt;1:N&gt;</li>
+        <li>La base de donnée doit contenir au moins une table intermédiaire pour relations &lt;N:N&gt;</li>
+        <li>Le résultat doit être responsive jusqu'à 800px de largeur</li>
+        <li>Le projet doit être rendu sur gitHub dans la branche "production" d'un repository tout neuf</li>
+    </ul>
+
+    <h3>Features:</h3>
+    <ul>
+        <li>Max responsiveness: Ok jusqu'à ~750px</li>
+        <li>Ajout, édition suppression de guitares</li>
+        <li>Ajout de propriétés simples et complexes (Marques, Micros pour guitares électriques, Couleurs, Bois, types de guitares). </li>
+        <li>Affichage des guitares sur 2 lignes de tableau avec déploiement de la seconde ligne.</li>
+        <li>Déploiement des panneaux d'ajout de propriété.</li>
+        <li>Gestion des propriétés via des requètes ajax.</li>
+    </ul>
+
+    <h3>Technos du rendu:</h3>
+    <ul>
+        <li>HTML/css flexbox</li>
+        <li>jQuery dom manipulation</li>
+        <li>jQuery.ajax()</li>
+        <li>PHP objet</li>        
+        <li>Laravel 5.5:
+            <ul class="sub-list">
+                <li>Routes post/get, web et api</li>
+                <li>Eloquent: all, find, where, save, attach, detach, delete, belongsTo, belongsToMany</li>
+                <li>Model, controller</li>
+                <li>php artisan (create controllers, models, migrations, generate app key)</li>
+                <li>Blade templating</li>
+            </ul>
+        </li>        
+        <li>MySql</li>
+        <li>Vagrant, ubuntu xenial, php7.0, apache2, mysql, composer</li>
+    </ul>
+    
+</body>
+</html>
