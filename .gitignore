@@ -6,14 +6,14 @@ html/.vscode/
 html/projects/sliderJS/*
 !html/projects/sliderJS/preview.html
 
-projects/jsGame/*
+html/projects/jsGame/*
 !html/projects/jsGame/preview.html
 
-projects/phpGame/*
+html/projects/phpGame/*
 !html/projects/phpGame/preview.html
 
-projects/quiz_manager/*
+html/projects/quiz_manager/*
 !html/projects/quiz_manager/preview.html
 
-projects/sliderJS/*
+html/projects/sliderJS/*
 !html/projects/sliderJS/preview.html
