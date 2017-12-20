@@ -52,3 +52,34 @@ a:hover
 {
     text-decoration: none;
 }
+
+.slider
+{
+    margin-top: 30px;
+}
+
+.slider-code
+{
+    max-width: 685px;
+}
+
+code
+{
+    background-color: #E3E3E3;
+}
+
+code keyword
+{
+    color: #0e3891;
+    font-weight: bold;
+}
+
+code var
+{
+    color: #0c6a8f;
+}
+
+code string
+{
+    color: #964e0a;
+}
