@@ -2,7 +2,7 @@
 // with node, install with npm
 // typings
 // then from your js dir: typings install dt~jquery --global
-/// <reference path="./typings/globals/jquery/index.d.ts" />
+/// <reference path="./globals/jquery/index.d.ts" />
 
 $(document).ready(function() {
 
