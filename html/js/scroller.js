@@ -14,6 +14,10 @@ $(document).ready(function()
         scrollToElement($('[data-menu="0"]'), sectionsID);
     });
 
+    $('.down-arrow').on('click', function() {
+        scrollToElement($('[data-menu="1"]'), sectionsID);
+    });
+
     //on scroll event
     $(document).scroll(function()
     {

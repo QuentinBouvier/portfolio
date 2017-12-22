@@ -83,3 +83,14 @@ code string
 {
     color: #964e0a;
 }
+
+@media screen
+and (max-width: 800px)
+{
+    
+
+    .slider
+    {
+        display: none;
+    }
+}

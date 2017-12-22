@@ -195,7 +195,7 @@ div
 }
 
 /*------------------------------------*/
-/*     3.2 size                       */
+/*     3.3 margins / paddings         */
 /*------------------------------------*/
 
 .mb-1
@@ -358,7 +358,6 @@ nav a
 
 .banner-title
 {
-    text-shadow: 0px 0px 3px var(--color-dark);
     text-align: center;
 
     color: var(--color-lighter);
@@ -390,6 +389,45 @@ nav a
 {
     margin-right: 30px;
 }
+
+.down-arrow
+{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    bottom: 60px;
+    opacity: 0.9;
+    animation: downarrowanim 1.7s ease-in-out infinite alternate;
+    opacity: 0.8;
+    text-shadow: 0px 0px 14px var(--color-lighter);
+}
+
+.down-arrow:hover
+{
+    cursor: pointer;
+}
+
+@keyframes downarrowanim
+{
+    from {
+        opacity: 0.6;
+        text-shadow: 0px 0px 8px var(--color-lighter);
+    }
+    to {
+        opacity: 0.8;
+        text-shadow: 0px 0px 14px var(--color-lighter);
+    }
+}
+
+.konamied
+{
+    z-index:999;
+    position: fixed;
+}
+
 /*------------------------------------*/
 /*    5.0 content                     */
 /*------------------------------------*/
@@ -704,12 +742,19 @@ break
 @media screen
 and (max-width: 800px)
 {
+    
     .banner-title
     {
         font-size: 4.1em;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+    }
+    .down-arrow
+    {
+        bottom: -5%;
+        left: 50%;
+        transform: translatex(-50%);
     }
     h3
     {
@@ -752,5 +797,24 @@ and (max-width: 800px)
     .project-preview.active iframe
     {
         height: 100vh;
+    }
+}
+
+/* iPad */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+    .banner-title
+    {
+        font-size: 6em;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .down-arrow
+    {
+        bottom: 10%;
+        left: 50%;
+        transform: translatex(-50%);
     }
 }
