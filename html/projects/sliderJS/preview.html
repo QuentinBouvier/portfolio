@@ -34,34 +34,40 @@
         <li>Manipulation Dom</li>
         <li>Css flexbox</li>
     </ul>
+    <div id="example">
+        <div class="slider" data-slider="slider3">
+            <div class="slider-image" data-slider-img="1"><img src="./images/Slide 1.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="2"><img src="./images/Slide 2.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="3"><img src="./images/Slide 3.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="4"><img src="./images/Slide 4.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="5"><img src="./images/Slide 5.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="6"><img src="./images/Slide 6.jpg" alt=""></div>
+            <div class="slider-image" data-slider-img="7"><img src="./images/Slide 7.jpg" alt=""></div>
+        </div>
+        <script src="./js/slider.js"></script>
 
-    <div class="slider" data-slider="slider1">
-        <div class="slider-image" data-slider-img="1"><img src="./images/Slide 1.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="2"><img src="./images/Slide 2.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="3"><img src="./images/Slide 3.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="4"><img src="./images/Slide 4.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="5"><img src="./images/Slide 5.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="6"><img src="./images/Slide 6.jpg" alt=""></div>
-        <div class="slider-image" data-slider-img="7"><img src="./images/Slide 7.jpg" alt=""></div>
-    </div>
-    <script src="./js/slider.js"></script>
+        <p>Options de ce slider:</p>
 
-    <p>Options de ce slider:</p>
-
-    <code class="slider-code">
-        <pre>
+        <code class="slider-code">
+            <pre>
     <keyword>var</keyword> <var>options</var> = {
         <string>'slider1'</string><keyword>:</keyword>
         {
-            <string>'width'</string><keyword>:</keyword> 900,
-            <string>'height'</string><keyword>:</keyword> 500,
+            <string>'width'</string><keyword>:</keyword> 600,
+            <string>'height'</string><keyword>:</keyword> 300,
             <string>'speed'</string><keyword>:</keyword> 200,
             <string>'buttonPosition'</string><keyword>:</keyword> <string>'over'</string>,
             <string>'leftArrow'</string><keyword>:</keyword> <string>'&lt;i class="fa fa-arrow-left" aria-hidden="true"&gt;&lt;/i&gt;'</string>,
             <string>'rightArrow'</string><keyword>:</keyword> <string>'&lt;i class="fa fa-arrow-right" aria-hidden="true"&gt;&lt;/i&gt;'</string>
         }
     };</pre>
-    </code>
-
+        </code>
+    </div>
+    <script>
+    if (!window.matchMedia("(min-width: 630px)").matches)
+    {
+        document.getElementById('example').style.display = 'none';
+    }    
+    </script>
 </body>
 </html>
