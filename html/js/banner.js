@@ -1,8 +1,53 @@
+$(document).ready(function() {
+
+    init();
+    animate();
+
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    n = 0;
+    $(document).keydown(function(e)
+    {
+        var code = e.keyCode || e.which;
+        if (code == konamiCode[n++])
+        {
+            if (n == konamiCode.length)
+            {
+                initKonami();
+            }
+        }
+        else
+        {
+            n = 0;
+        }
+    });
+});
+
+function initKonami()
+{
+    $('html, body').animate({
+        scrollTop: 0
+    }, 400, function() {
+        $('#cube').addClass('konamied');
+    });
+
+    $(document).on('keydown', konamiControls);
+
+}
+
+function konamiControls(e)
+{
+    var code = e.keycode || e.which;
+
+    console.log('Konami active, keycode: ' + code);
+
+    if (code == '27')
+    {
+        $('#cube').removeClass('konamied');
+        $(document).off('keydown', konamiControls);
+    }
+}
+
 var renderer, scene, camera, wireframe, meshDodeca;
-
-
-init();
-animate();
 
 function init(){
     // on initialise le moteur de rendu
@@ -22,23 +67,12 @@ function init(){
     camera.position.x = 200;
     camera.position.y = -50;
     scene.add(camera);
-    
-    // on créé un  cube au quel on définie un matériau puis on l’ajoute à la scène 
-    // var geometry = new THREE.CubeGeometry( 200, 200, 200 );
-    // var geo = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry( geometry )    
-    // var material = new THREE.LineBasicMaterial( { color: 0x777777, linewidth: 20 } );   
-    // wireframe = new THREE.LineSegments( geo, material );
 
-    // scene.add(wireframe);
-
-    // var line = new MeshLine();
-    // line.setGeometry(geometry);
-    // var lineMat = new MeshLineMaterial();
-    // meshLineCube = new THREE.Mesh( line.geometry, lineMat);
-
+    // Création d'une géométrie wireframe pour le cube
     var geometry = new THREE.CubeGeometry(200,200,200);
     var lineGeometry = new THREE.EdgesGeometry(geometry);
 
+    // matériau uni noir pour le cube
     var material = new THREE.MeshBasicMaterial({
         color: 0x000000
     });
@@ -46,7 +80,6 @@ function init(){
     meshDodeca = new THREE.Mesh(geometry, material);
 
     scene.add(meshDodeca);
-
 
     var line = new MeshLine();
     line.setGeometry(lineGeometry);
