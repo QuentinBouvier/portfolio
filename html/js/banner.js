@@ -5,13 +5,14 @@ $(document).ready(function() {
 
     var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
     n = 0;
-    $(document).keydown(function(e)
+    $(document).on('keydown', function(e)
     {
         var code = e.keyCode || e.which;
         if (code == konamiCode[n++])
         {
             if (n == konamiCode.length)
             {
+                disableScroll();
                 initKonami();
             }
         }
@@ -22,6 +23,8 @@ $(document).ready(function() {
     });
 });
 
+var controls = [];
+
 function initKonami()
 {
     $('html, body').animate({
@@ -30,20 +33,48 @@ function initKonami()
         $('#cube').addClass('konamied');
     });
 
-    $(document).on('keydown', konamiControls);
-
+    document.addEventListener('keydown', keyDown);
+    document.addEventListener('keyup', keyUp);
 }
 
-function konamiControls(e)
+function keyDown(e)
 {
-    var code = e.keycode || e.which;
+    console.log('down '  + e.keyCode);
+    controls[e.keyCode] = true;
+}
 
-    console.log('Konami active, keycode: ' + code);
+function keyUp(e)
+{
+    console.log('up ' + e.keyCode);
+    controls[e.keyCode] = false;
+}
 
-    if (code == '27')
+function konamiControls()
+{
+    if (controls !== undefined) 
     {
-        $('#cube').removeClass('konamied');
-        $(document).off('keydown', konamiControls);
+        // console.log(controls);
+
+        // esc
+        if (controls[27])
+        {
+            $('#cube').removeClass('konamied');
+            document.removeEventListener('keydown', keyDown);
+            document.removeEventListener('keyUp', keyUp);
+            enableScroll();
+        }
+
+        // up arrow
+        if (controls[38])
+        {
+            camera.position.z -= 10;
+        }
+
+        // down arrow
+        if (controls[40])
+        {
+            camera.position.z += parseInt(10);
+        }
     }
 }
 
@@ -99,6 +130,43 @@ function init(){
 
 function animate(){
     requestAnimationFrame( animate );
+    konamiControls();
     meshDodeca.rotation.y += 0.003;
     renderer.render( scene, camera );
+}
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disableScroll() {
+    if (window.addEventListener) // older FF
+        window.addEventListener('DOMMouseScroll', preventDefault, false);
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove  = preventDefault; // mobile
+    document.onkeydown  = preventDefaultForScrollKeys;
+}
+
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null; 
+    window.onwheel = null; 
+    window.ontouchmove = null;  
+    document.onkeydown = null;  
 }
