@@ -18,6 +18,8 @@ $(document).ready(function()
         }
     });
 
+    // changedActive event triggered when another top bar button is selected (by scrolling or clicking)
+    // See scroller.js line 66
     $('body').on('changedActive', '[data-menu]', function()
     {
         burgerizeScrollBehavior($(this));
@@ -27,9 +29,11 @@ $(document).ready(function()
     $('body').on('click touchend', '[data-navbar="button"]', function()
     {
         expandMenu();
+        $('.navbar-background').removeClass('navbar-background-transparent');
     });
 });
 
+// control var, true if menu not expanded
 var isBurgerized = true;
 
 function expandMenu()
@@ -40,8 +44,12 @@ function expandMenu()
     });
 }
 
+/**
+ * Put correct classes on menu if viewport is narrow
+ */
 function burgerize()
 {
+    // vars for readability
     var master = $('div[data-navbar="master"]');
     var container = $('ul[data-navbar="container"]');
     var button = $('div[data-navbar="button"]');
@@ -89,6 +97,11 @@ function burgerize()
     }
 }
 
+/**
+ * Change order of buttons on burgerized menu
+ * Called on "changedActive" event (see scroller.js line 66)
+ * @param {DOM Object} activeLink 
+ */
 function burgerizeScrollBehavior(activeLink)
 {
     if (isBurgerized)
