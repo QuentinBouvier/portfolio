@@ -2,6 +2,7 @@
 $(document).ready(function()
 {
     selectButton($('[data-menu="0"]'));
+    barBackground();
 
     //click on navbar links
     $('body').on('click touchend', '[data-menu]', function()
@@ -22,6 +23,7 @@ $(document).ready(function()
     $(document).scroll(function()
     {
         selectButtonOnScroll(sectionsID);
+        barBackground();
     });
 });
 
@@ -60,6 +62,7 @@ function selectButton(clicked)
     if (!clicked.hasClass('social-icon'))
     {
         //add the highlighting class on it
+        // Trigger a changedActive event for burgerized menu
         clicked.addClass('navbar-link-active').trigger('changedActive');
     }
 }
@@ -111,5 +114,17 @@ function selectButtonOnScroll(targetsID)
                 selectButton($('[data-menu="' + index + '"]'));
             }
         });
+    }
+}
+
+function barBackground()
+{
+    if ($(document).scrollTop() <= 200)
+    {
+        $('.navbar-background').addClass('navbar-background-transparent');
+    }
+    else
+    {
+        $('.navbar-background').removeClass('navbar-background-transparent');
     }
 }
