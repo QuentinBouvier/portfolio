@@ -40,7 +40,7 @@
             </label>
             <input type="submit" name ="submit" value="Envoyer">
         </form>
-        <div class="copyrights">Copyrights © 2017 Quentin Bouvier / Babbleprod. Contenu sous licence <a href="https://github.com/angular/angular.js/blob/master/LICENSE">MIT</a></div>
+        <div class="copyrights">Copyrights © 2017-2018 Quentin Bouvier / Babbleprod. Contenu sous licence <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a>. Sources available <a href="https://github.com/QuentinBouvier/portfolio" target="_blank">here</a>.</div>
     </div>
 </footer>
 
