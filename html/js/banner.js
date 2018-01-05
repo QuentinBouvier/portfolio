@@ -2,25 +2,6 @@ $(document).ready(function() {
 
     init();
     animate();
-
-    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-    n = 0;
-    $(document).on('keydown', function(e)
-    {
-        var code = e.keyCode || e.which;
-        if (code == konamiCode[n++])
-        {
-            if (n == konamiCode.length)
-            {
-                disableScroll();
-                initKonami();
-            }
-        }
-        else
-        {
-            n = 0;
-        }
-    });
 });
 
 var controls = [];

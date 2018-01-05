@@ -398,13 +398,12 @@ nav a
 .down-arrow
 {
     width: 100px;
-    height: 100px;
+    height: auto;
     text-align: center;
     color: white;
     font-size: 3em;
     position: absolute;
     bottom: 60px;
-    opacity: 0.9;
     animation: downarrowanim 1.7s ease-in-out infinite alternate;
     opacity: 0.8;
     text-shadow: 0px 0px 14px var(--color-lighter);
@@ -757,7 +756,7 @@ and (max-width: 800px)
     }
     .down-arrow
     {
-        bottom: -5%;
+        bottom: 0;
         left: 50%;
         transform: translatex(-50%);
     }
