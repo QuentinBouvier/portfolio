@@ -127,7 +127,7 @@ function resetWorks()
             current.css('order', originalOrder[i]);
             current.removeClass('active');
             current.removeClass('min');
-        }, timeout);
+        }, timeout - 200);
     });
 
     $('[data-work-preview]').each(function(i, v) 
