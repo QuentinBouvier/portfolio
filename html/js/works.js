@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 var originalOrder = [];
-var firstUse, smartphone = true;
+var firstUse = true, smartphone = true;
 
 /**
  * Set listeners on tiles and close buttons
