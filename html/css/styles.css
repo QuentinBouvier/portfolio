@@ -807,7 +807,7 @@ and (max-width: 800px)
 }
 
 @media screen
-and (max-width: 400px)
+and (max-width: 550px)
 {
     .project-preview {
         transition: none;

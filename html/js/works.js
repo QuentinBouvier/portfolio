@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 var originalOrder = [];
-var firstUse = true;
+var firstUse, smartphone = true;
 
 /**
  * Set listeners on tiles and close buttons
@@ -48,8 +48,10 @@ function dispAllTiles()
  */
 function activate(target)
 {
+    smartphone = !window.matchMedia("(min-width: 550px)").matches
+        
     // listen to first use to set a timeout or not on position switching
-    timeout = (firstUse) ? 0 : 1000;
+    timeout = (firstUse || smartphone) ? 0 : 1000;
 
     // tiles
     $('[data-work]').each(function(i, v) 
@@ -91,8 +93,7 @@ function activate(target)
             }, timeout);
         }
         else //active preview
-        {
-            
+        {            
             $('break').remove();
             $('<break></break>').insertAfter(current);
             current.css('order', '-2');
@@ -113,7 +114,11 @@ function activate(target)
 
 function resetWorks()
 {
-    
+    smartphone = !window.matchMedia("(min-width: 550px)").matches
+        
+    // listen to first use to set a timeout or not on position switching
+    timeout = (firstUse || smartphone) ? 0 : 1000;
+
     $('[data-work]').each(function(i, v) 
     {
         var current = $(this);
@@ -122,22 +127,23 @@ function resetWorks()
             current.css('order', originalOrder[i]);
             current.removeClass('active');
             current.removeClass('min');
-        }, 1000);
+        }, timeout);
     });
 
     $('[data-work-preview]').each(function(i, v) 
     {
-        $(this).attr('style', '');
+        var current = $(this);
+        current.attr('style', '');
         setTimeout(function() {
-            $(this).removeClass('active');
-        }, 1000);
-
+            $(current).removeClass('active');
+        }, timeout);
+        
     });
 
     setTimeout(function() 
     {
         $('break').remove();
-    }, 1000);
+    }, timeout);
 
     firstUse = true;
 }
