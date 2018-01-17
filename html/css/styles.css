@@ -542,6 +542,7 @@ nav a
     width: 0;
     height: 0;
     transition: .8s all;
+    order: -2;
 }
 
 .project-preview-iframe
@@ -564,7 +565,7 @@ break
 
 .section-2-background
 {
-    background-color: var(--color-complementary);
+    background-color: #3b5761;
     margin-top: 79px;
     margin-bottom: 79px;
 }
@@ -595,9 +596,10 @@ break
 
 .myface-container
 {
-    border-radius: 200px;
+    border-radius: 30px;
     background-color: #000;
     max-width: 336px;
+    align-self: baseline;
 }
 
 .skills-container
@@ -801,6 +803,14 @@ and (max-width: 800px)
     .project-preview.active iframe
     {
         height: 100vh;
+    }
+}
+
+@media screen
+and (max-width: 400px)
+{
+    .project-preview {
+        transition: none;
     }
 }
 
