@@ -13,6 +13,9 @@ $(document).ready(function() {
 var originalOrder = [];
 var firstUse = true;
 
+/**
+ * Set listeners on tiles and close buttons
+ */
 function worksInit()
 {
     dispAllTiles();
@@ -26,6 +29,9 @@ function worksInit()
     });
 }
 
+/**
+ * Set tiles style to normal and get original order
+ */
 function dispAllTiles()
 {
     $('[data-work]').each(function(i, v){
@@ -35,10 +41,17 @@ function dispAllTiles()
     });
 }
 
+/**
+ * Minimize not clicked tiles, put targeted tile and preview on first position,
+ * set targetted objects to active style to launch animation
+ * @param { DOM Element } target 
+ */
 function activate(target)
 {
+    // listen to first use to set a timeout or not on position switching
     timeout = (firstUse) ? 0 : 1000;
 
+    // tiles
     $('[data-work]').each(function(i, v) 
     {
         var current = $(this);
@@ -61,10 +74,13 @@ function activate(target)
         }
     });
 
+    // previews
     $('[data-work-preview]').each(function(i, v) 
     {
+        // this scope
         var current = $(this);
 
+        // not active previews
         if (current.data('work-preview') != target)
         {
             current.attr('style', 'order: -2;');
@@ -74,12 +90,12 @@ function activate(target)
                 current.css('order', parseInt(originalOrder[i]) + parseInt(5));
             }, timeout);
         }
-        else
+        else //active preview
         {
             
-            current.css('order', '-2');
             $('break').remove();
             $('<break></break>').insertAfter(current);
+            current.css('order', '-2');
 
             setTimeout(function() {                
                 current.addClass('active');
@@ -112,8 +128,9 @@ function resetWorks()
     $('[data-work-preview]').each(function(i, v) 
     {
         $(this).attr('style', '');
-        $(this).removeClass('active');
-        $(this).css('order', parseInt(originalOrder[i]) + parseInt(5));
+        setTimeout(function() {
+            $(this).removeClass('active');
+        }, 1000);
 
     });
 

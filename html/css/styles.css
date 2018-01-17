@@ -543,6 +543,7 @@ nav a
     width: 0;
     height: 0;
     transition: .8s all;
+    order: -2;
 }
 
 .project-preview-iframe
@@ -802,6 +803,14 @@ and (max-width: 800px)
     .project-preview.active iframe
     {
         height: 100vh;
+    }
+}
+
+@media screen
+and (max-width: 400px)
+{
+    .project-preview {
+        transition: none;
     }
 }
 
