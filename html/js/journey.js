@@ -541,6 +541,7 @@
                 document.removeEventListener('mozpointerlockchange', _this._pointerlockchange, false);
                 document.removeEventListener('webkitpointerlockchange', _this._pointerlockchange, false);
                 document.removeEventListener('captureMouse', _this._requestPointerLock);
+                _this.releasePointerLock();
                 delete _this._captureEvent;
             };
             this._onMouseMove = function (e) {
