@@ -666,7 +666,7 @@
                     document.addEventListener('captureMouse', _this._requestPointerLock);
                 }
                 else {
-                    alert('Your browser doesn\'t seem to support Pointer Lock API');
+                    alert('Votre navigateur ne supporte pas l\'API PointerLock');
                 }
             };
             /**
