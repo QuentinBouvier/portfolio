@@ -37,46 +37,6 @@ function initKonami()
     document.addEventListener('keyup', keyUp);
 }
 
-function keyDown(e)
-{
-    console.log('down '  + e.keyCode);
-    controls[e.keyCode] = true;
-}
-
-function keyUp(e)
-{
-    console.log('up ' + e.keyCode);
-    controls[e.keyCode] = false;
-}
-
-function konamiControls()
-{
-    if (controls !== undefined) 
-    {
-        // console.log(controls);
-
-        // esc
-        if (controls[27])
-        {
-            $('#cube').removeClass('konamied');
-            document.removeEventListener('keydown', keyDown);
-            document.removeEventListener('keyUp', keyUp);
-            enableScroll();
-        }
-
-        // up arrow
-        if (controls[38])
-        {
-            camera.position.z -= 10;
-        }
-
-        // down arrow
-        if (controls[40])
-        {
-            camera.position.z += parseInt(10);
-        }
-    }
-}
 
 var renderer, scene, camera, wireframe, meshDodeca;
 
@@ -130,14 +90,13 @@ function init(){
 
 function animate(){
     requestAnimationFrame( animate );
-    konamiControls();
     meshDodeca.rotation.y += 0.003;
     renderer.render( scene, camera );
 }
 
 // left: 37, up: 38, right: 39, down: 40,
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+var keys = {37: 1, 38: 1, 39: 1, 40: 1, 32:1, 33:1, 34:1, 35:1, 36:1};
 
 function preventDefault(e) {
   e = e || window.event;

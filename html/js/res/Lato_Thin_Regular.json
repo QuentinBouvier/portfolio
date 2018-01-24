@@ -1,0 +1,110 @@
+{
+    "glyphs": {
+        " ": {
+            "ha": 388,
+            "x_min": 0,
+            "x_max": 0,
+            "o": ""
+        },
+        "B": {
+            "ha": 867,
+            "x_min": 155,
+            "x_max": 778,
+            "o": "m 456 31 q 666 90 593 31 q 740 261 740 149 q 720 352 740 312 q 664 421 700 392 q 575 465 627 449 q 457 480 522 480 l 193 480 l 193 31 l 456 31 m 193 946 l 193 509 l 424 509 q 550 529 498 509 q 634 580 601 549 q 682 651 667 612 q 697 728 697 690 q 629 890 697 833 q 419 946 560 946 l 193 946 m 419 976 q 657 913 579 976 q 735 731 735 849 q 719 652 735 690 q 677 583 704 615 q 610 530 649 552 q 523 499 571 508 q 630 473 583 492 q 710 424 677 454 q 760 352 743 394 q 778 260 778 311 q 756 150 778 198 q 693 68 735 101 q 592 17 652 35 q 456 0 533 0 l 155 0 l 155 976 l 419 976 z "
+        },
+        "D": {
+            "ha": 1055,
+            "x_min": 155,
+            "x_max": 964,
+            "o": "m 964 488 q 931 283 964 374 q 837 130 897 192 q 692 33 776 67 q 507 0 608 0 l 155 0 l 155 976 l 507 976 q 692 943 608 976 q 837 847 776 910 q 931 693 897 784 q 964 488 964 603 m 924 488 q 893 682 924 597 q 808 826 863 767 q 676 915 753 884 q 507 945 599 945 l 193 945 l 193 31 l 507 31 q 676 62 599 31 q 808 151 753 92 q 893 294 863 209 q 924 488 924 379 z "
+        },
+        "E": {
+            "ha": 808,
+            "x_min": 155,
+            "x_max": 733,
+            "o": "m 733 33 l 731 0 l 155 0 l 155 976 l 731 976 l 731 944 l 193 944 l 193 511 l 647 511 l 647 479 l 193 479 l 193 33 l 733 33 z "
+        },
+        "I": {
+            "ha": 348,
+            "x_min": 155,
+            "x_max": 193,
+            "o": "m 193 0 l 155 0 l 155 976 l 193 976 l 193 0 z "
+        },
+        "N": {
+            "ha": 1043,
+            "x_min": 155,
+            "x_max": 888,
+            "o": "m 888 976 l 888 0 l 872 0 q 857 8 863 0 l 187 914 q 188 901 188 908 q 188 889 188 894 l 188 0 l 155 0 l 155 976 l 172 976 q 181 975 178 976 q 189 967 185 973 l 856 65 q 855 78 856 72 q 855 90 855 84 l 855 976 l 888 976 z "
+        },
+        "Q": {
+            "ha": 1093,
+            "x_min": 90,
+            "x_max": 1040,
+            "o": "m 128 488 q 159 293 128 379 q 245 147 190 206 q 377 55 301 87 q 546 23 454 23 q 716 55 639 23 q 848 147 792 87 q 933 293 903 206 q 963 488 963 379 q 933 684 963 597 q 848 831 903 770 q 716 923 792 891 q 546 955 639 955 q 377 923 454 955 q 245 831 301 891 q 159 684 190 770 q 128 488 128 597 m 1040 -222 l 1008 -222 q 981 -212 991 -222 l 751 34 q 654 1 706 13 q 546 -10 603 -10 q 361 25 445 -10 q 217 125 277 60 q 123 282 156 190 q 90 488 90 374 q 123 694 90 602 q 217 852 156 787 q 361 952 277 917 q 546 988 445 988 q 732 952 648 988 q 876 852 816 917 q 970 695 937 788 q 1003 488 1003 603 q 988 345 1003 412 q 944 223 973 278 q 875 124 916 167 q 783 51 835 81 l 1040 -222 z "
+        },
+        "T": {
+            "ha": 796,
+            "x_min": 20,
+            "x_max": 776,
+            "o": "m 776 943 l 418 943 l 418 0 l 380 0 l 380 943 l 20 943 l 20 976 l 776 976 l 776 943 z "
+        },
+        "U": {
+            "ha": 1004,
+            "x_min": 142,
+            "x_max": 862,
+            "o": "m 502 22 q 637 49 578 22 q 738 122 697 76 q 801 232 779 169 q 823 367 823 294 l 823 976 l 862 976 l 862 367 q 837 218 862 288 q 765 98 812 149 q 652 17 718 47 q 502 -12 585 -12 q 352 17 419 -12 q 239 98 285 47 q 167 218 192 149 q 142 367 142 288 l 142 976 l 181 976 l 181 368 q 202 233 181 296 q 266 123 224 169 q 367 49 307 76 q 502 22 426 22 z "
+        },
+        "V": {
+            "ha": 895,
+            "x_min": 25,
+            "x_max": 870,
+            "o": "m 870 976 l 465 0 l 431 0 l 25 976 l 55 976 q 70 965 67 976 l 433 90 q 441 68 437 79 q 448 44 444 56 q 463 90 454 68 l 824 965 q 841 976 828 976 l 870 976 z "
+        },
+        "W": {
+            "ha": 1399,
+            "x_min": 39,
+            "x_max": 1360,
+            "o": "m 1360 976 l 1051 0 l 1017 0 l 708 901 q 700 929 703 915 q 692 901 697 915 l 381 0 l 348 0 l 39 976 l 70 976 q 85 965 82 976 l 355 97 q 367 47 362 74 q 373 74 369 61 q 379 97 376 86 l 680 965 q 697 976 683 976 l 706 976 q 721 965 717 976 l 1022 97 q 1034 48 1028 76 q 1040 74 1037 62 q 1046 97 1042 86 l 1315 965 q 1332 976 1319 976 l 1360 976 z "
+        },
+        ".": {
+            "ha": 323,
+            "x_min": 109,
+            "x_max": 215,
+            "o": "m 109 41 q 124 79 109 63 q 161 94 139 94 q 199 79 183 94 q 215 41 215 63 q 199 4 215 19 q 161 -11 183 -11 q 124 4 139 -11 q 109 41 109 19 z "
+        }
+    },
+    "familyName": "Lato Thin",
+    "ascender": 1371,
+    "descender": -296,
+    "underlinePosition": -342,
+    "underlineThickness": 25,
+    "boundingBox": {
+        "yMin": -362,
+        "xMin": -649,
+        "yMax": 1448,
+        "xMax": 1622
+    },
+    "resolution": 1000,
+    "original_font_information": {
+        "format": 0,
+        "copyright": "Copyright (c) 2011-2015 by tyPoland Lukasz Dziedzic (http://www.typoland.com/) with Reserved Font Name \"Lato\". Licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). ",
+        "fontFamily": "Lato Thin",
+        "fontSubfamily": "Regular",
+        "uniqueID": "2.015;tyPL;Lato-Thin;2015;TR4-4.0.2.5571",
+        "fullName": "Lato Thin",
+        "version": "Version 2.015; 2015-08-06; http://www.latofonts.com/",
+        "postScriptName": "Lato-Thin",
+        "trademark": "Lato is a trademark of tyPoland Lukasz Dziedzic.",
+        "manufacturer": "tyPoland Lukasz Dziedzic",
+        "designer": "Lukasz Dziedzic with Adam Twardoch and Botio Nikoltchev",
+        "description": "Lato is a sanserif typeface family designed in the Summer 2010 and extended in the Summer 2013 by Warsaw-based designer Lukasz Dziedzic (\"Lato\" means \"Summer\" in Polish). It tries to carefully balance some potentially conflicting priorities: it should seem quite \"transparent\" when used in body text but would display some original traits when used in larger sizes. The classical proportions, particularly visible in the uppercase, give the letterforms familiar harmony and elegance. At the same time, its sleek sanserif look makes evident the fact that Lato was designed in the 2010s, even though it does not follow any current trend. The semi-rounded details of the letters give Lato a feeling of warmth, while the strong structure provides stability and seriousness. In 2013-2014, the family was greatly extended (with the help of Adam Twardoch and Botio Nikoltchev) to cover 3000+ glyphs over nine weights with italics. It now supports 100+ Latin-based languages, 50+ Cyrillic-based languages as well as Greek and IPA phonetics. The Lato fonts are available free of charge under the SIL Open Font License from http://www.latofonts.com/",
+        "manufacturerURL": "http://www.typoland.com/",
+        "designerURL": "http://www.latofonts.com/",
+        "licence": "Copyright (c) 2011-2015 by tyPoland Lukasz Dziedzic (http://www.typoland.com/) with Reserved Font Name \"Lato\". Licensed under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). ",
+        "licenceURL": "http://scripts.sil.org/OFL",
+        "preferredFamily": "Lato",
+        "preferredSubfamily": "Thin"
+    },
+    "cssFontWeight": "normal",
+    "cssFontStyle": "normal"
+}
