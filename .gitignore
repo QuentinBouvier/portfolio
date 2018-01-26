@@ -2,6 +2,7 @@
 html/.vscode/
 .vscode/
 .idea/
+/html/docs
 
 html/projects/sliderJS/*
 !html/projects/sliderJS/preview.html
