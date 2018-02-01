@@ -29,7 +29,7 @@ See [QuentinBouvier/journey](https://github.com/QuentinBouvier/journey)
 
 ### php
 
-#### Projects/works/worksHandler.php
+#### pages/works/worksHandler.php
 
 Detect folders or .html files in a folder and draw tiles according to the folder's structure.<br>
 Draw tiles based on preview.html meta tags in each project's folders or each .html files in /projects directory.
