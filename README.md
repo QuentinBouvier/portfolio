@@ -24,14 +24,14 @@ See [QuentinBouvier/SliderJs](https://github.com/QuentinBouvier/sliderJs)
 
 #### journey.js
 
-Use konami code on main page (Doesn't work on projet description iframes :( )
+Use konami code on main page (Doesn't work on projet description iframes :( )<br>
 See [QuentinBouvier/journey](https://github.com/QuentinBouvier/journey)
 
 ### php
 
 #### Projects/works/worksHandler.php
 
-Detect folders or .html files in a folder and draw tiles according to the folder's structure.
+Detect folders or .html files in a folder and draw tiles according to the folder's structure.<br>
 Draw tiles based on preview.html meta tags in each project's folders or each .html files in /projects directory.
 
 ## Dependencies
