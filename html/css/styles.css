@@ -43,6 +43,7 @@ body, ul
     --color-lighter: #F9FAF2;
     --color-dark: #1A2123;
     --color-button: #1A2123;
+    --color-section-background-2: #a31725;
 }
 
 body
@@ -595,7 +596,7 @@ break
 
 .section-2-background
 {
-    background-color: #3b5761;
+    background-color: var(--color-section-background-2);
     margin-top: 79px;
     margin-bottom: 79px;
 }
@@ -635,7 +636,14 @@ break
 .skills-container
 {
     background-color: var(--color-light);
-    opacity: 0.7;
+    opacity: 0.9;
+    padding: 0 10px 25px;
+}
+
+.skills-container.third-width
+{
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .skills-container ul
@@ -646,23 +654,36 @@ break
 .skills-container h4
 {
     text-align: center;
+    min-height: 96px;
 }
 
 .skills-list
 {
-    position: relative;
     text-align: left;
     font-size: 1.2em;
     list-style-type: none;
-    display: inline-block;
-    margin-bottom: 55px;
-    margin: auto;
     padding-bottom: 50px;
 }
 
 .skills-container .courses p
 {
     margin-left: 25px;
+}
+
+.skills-container .courses p.section-title
+{
+    margin-left: 66px;
+}
+
+.skills-container .section-icon
+{
+    float:left;
+    margin-left: 7px;
+}
+
+#logo-maskott {
+    width: 300px;
+    filter: hue-rotate(7deg);
 }
 
 /*------------------------------------*/
