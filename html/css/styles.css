@@ -379,7 +379,7 @@ nav a
 }
 
 .journey-infos
-{            
+{
     color: white;
     position: absolute;
     top: 35px;
@@ -407,7 +407,7 @@ nav a
 {
     text-align: center;
     padding: 0;
-    width: auto;    
+    width: auto;
 }
 
 .social-icon .topbar-link
@@ -420,7 +420,7 @@ nav a
     margin-right: 30px;
 }
 
-.down-arrow
+.menu-arrow
 {
     width: 100px;
     height: auto;
@@ -428,13 +428,24 @@ nav a
     color: white;
     font-size: 3em;
     position: absolute;
-    bottom: 60px;
     animation: downarrowanim 1.7s ease-in-out infinite alternate;
     opacity: 0.8;
     text-shadow: 0px 0px 14px var(--color-lighter);
 }
 
-.down-arrow:hover
+.down-arrow
+{
+    bottom: 60px;
+}
+
+#launch-journey
+{
+    bottom: 25%;
+    font-size: 2em;
+    transform: rotateX(50deg);
+}
+
+.menu-arrow:hover
 {
     cursor: pointer;
 }
@@ -689,7 +700,7 @@ break
     margin-bottom: 60px;
 }
 
-.contact-form input[type="text"], 
+.contact-form input[type="text"],
 .contact-form textarea
 {
     width: 100%;
@@ -697,14 +708,14 @@ break
     min-width: 20vw;
     border-radius: 5px;
     border: 3px solid var(--color-light);
-    margin: 5px auto;  
+    margin: 5px auto;
     font-family: 'Roboto Slab', serif;
     font-size: 0.8em;
 }
 
 .contact-form input[type="text"]
 {
-    height: 40px;    
+    height: 40px;
 }
 
 .contact-form input[name="captcha"]
@@ -730,7 +741,7 @@ break
     max-width: 80vw;
     border-radius: 5px;
     border: 3px solid var(--color-light);
-    margin: 5px auto;  
+    margin: 5px auto;
     font-family: 'Roboto Slab', serif;
     font-size: 0.8em;
 }
@@ -767,7 +778,7 @@ break
 @media screen
 and (max-width: 800px)
 {
-    
+
     .banner-title
     {
         font-size: 4.1em;
@@ -780,6 +791,10 @@ and (max-width: 800px)
         bottom: 0;
         left: 50%;
         transform: translatex(-50%);
+    }
+    #launch-journey
+    {
+        display:none;
     }
     h3
     {
@@ -813,9 +828,9 @@ and (max-width: 800px)
         height: auto !important;
         margin-bottom: 30px;
     }
-    
+
     .project-preview.active .project-preview-iframe
-    {        
+    {
         margin: 0 20px;
     }
 
@@ -831,11 +846,14 @@ and (max-width: 550px)
     .project-preview {
         transition: none;
     }
+    #launch-journey {
+        display: none;
+    }
 }
 
 /* iPad */
-@media only screen 
-and (min-device-width : 768px) 
+@media only screen
+and (min-device-width : 768px)
 and (max-device-width : 1024px)  {
     .banner-title
     {
