@@ -2,6 +2,17 @@
 
 My public place with various projects and modest introduction of me.
 
+## Docker
+
+Use php:apache image and the custom dockerfile to run this in a container
+
+```sh
+docker build . --t portfolio
+docker run --name portfolio -v `pwd`/html:/var/www/html -p 8080:80 -d portfolio
+```
+
+access `http://localhost:8080`
+
 ## Custom scripts
 
 ### js
@@ -24,24 +35,21 @@ See [QuentinBouvier/SliderJs](https://github.com/QuentinBouvier/sliderJs)
 
 #### journey.js
 
-Use konami code on main page (Doesn't work on projet description iframes :( )<br>
+Use konami code on main page (Doesn't work on projet description iframes :( )
+
 See [QuentinBouvier/journey](https://github.com/QuentinBouvier/journey)
 
 ### php
 
 #### pages/works/worksHandler.php
 
-Detect folders or .html files in a folder and draw tiles according to the folder's structure.<br>
+Detect folders or .html files in a folder and draw tiles according to the folder's structure.
+
 Draw tiles based on preview.html meta tags in each project's folders or each .html files in /projects directory.
 
 ## Dependencies
 
 ### v2
 
-+ php7.0-gd
++ php7-gd
 + msmtp
-
-### v3
-
-+ Laravel 5.5
-+ php7.0-gd (Laravel: php7.0-mbstring php7.0-xml)
