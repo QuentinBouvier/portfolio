@@ -7,7 +7,7 @@ My public place with various projects and modest introduction of me.
 Use php:apache image and the custom dockerfile to run this in a container
 
 ```sh
-docker build . --t portfolio
+docker build . -t portfolio
 docker run --name portfolio -v `pwd`/html:/var/www/html -p 8080:80 -d portfolio
 ```
 
