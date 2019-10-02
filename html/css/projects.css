@@ -36,9 +36,11 @@ ul
     list-style-type: circle;
 }
 
-.sub-list
+ul li ul
 {
-    font-size: 16px;
+    font-size: .8em;
+    list-style-type: square;
+    margin: 0 0 0 1em;
 }
 
 a
@@ -87,8 +89,6 @@ code string
 @media screen
 and (max-width: 800px)
 {
-    
-
     .slider
     {
         display: none;
