@@ -41,7 +41,7 @@
         return BoxGenerator;
     }());
     exports.BoxGenerator = BoxGenerator;
-    
+
     },{"./FramedBox":4,"./engine/Utils":11}],2:[function(require,module,exports){
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -66,7 +66,7 @@
         return output;
     }
     exports.randomInt = randomInt;
-    
+
     },{}],3:[function(require,module,exports){
     "use strict";
     /// <reference path="../typings/index.d.ts" />
@@ -119,7 +119,7 @@
         return FloatingText;
     }());
     exports.FloatingText = FloatingText;
-    
+
     },{}],4:[function(require,module,exports){
     "use strict";
     /// <reference path="../typings/index.d.ts" />
@@ -165,7 +165,7 @@
         return FramedBox;
     }());
     exports.FramedBox = FramedBox;
-    
+
     },{"./Engine/Utils":2}],5:[function(require,module,exports){
     "use strict";
     /// <reference path="../typings/index.d.ts" />
@@ -307,7 +307,7 @@
         return GameScene;
     }(Scene_1.Scene));
     exports.GameScene = GameScene;
-    
+
     },{"./BoxGenerator":1,"./FloatingText":3,"./FramedBox":4,"./engine/Input":8,"./engine/Scene":10}],6:[function(require,module,exports){
     "use strict";
     /// <reference path="../typings/index.d.ts" />
@@ -349,7 +349,7 @@
         return PortfolioScene;
     }(Scene_1.Scene));
     exports.PortfolioScene = PortfolioScene;
-    
+
     },{"./FramedBox":4,"./engine/Scene":10}],7:[function(require,module,exports){
     "use strict";
     /// <reference path="../../typings/index.d.ts" />
@@ -511,7 +511,7 @@
         return Camera;
     }());
     exports.Camera = Camera;
-    
+
     },{}],8:[function(require,module,exports){
     "use strict";
     /// <reference path="../../typings/index.d.ts" />
@@ -541,7 +541,6 @@
                 document.removeEventListener('mozpointerlockchange', _this._pointerlockchange, false);
                 document.removeEventListener('webkitpointerlockchange', _this._pointerlockchange, false);
                 document.removeEventListener('captureMouse', _this._requestPointerLock);
-                _this.releasePointerLock();
                 delete _this._captureEvent;
             };
             this._onMouseMove = function (e) {
@@ -666,7 +665,7 @@
                     document.addEventListener('captureMouse', _this._requestPointerLock);
                 }
                 else {
-                    alert('Votre navigateur ne supporte pas l\'API PointerLock');
+                    alert('Your browser doesn\'t seem to support Pointer Lock API');
                 }
             };
             /**
@@ -762,7 +761,7 @@
         return Input;
     }());
     exports.Input = Input;
-    
+
     },{}],9:[function(require,module,exports){
     "use strict";
     /// <reference path="../../typings/index.d.ts" />
@@ -793,7 +792,7 @@
         return Player;
     }(Camera_1.Camera));
     exports.Player = Player;
-    
+
     },{"./Camera":7}],10:[function(require,module,exports){
     "use strict";
     /// <reference path="../../typings/index.d.ts" />
@@ -904,7 +903,7 @@
         return Scene;
     }());
     exports.Scene = Scene;
-    
+
     },{}],11:[function(require,module,exports){
     arguments[4][2][0].apply(exports,arguments)
     },{"dup":2}],12:[function(require,module,exports){
@@ -935,9 +934,11 @@
         var isWebGl = document.createElement('canvas');
         isWebGl = isWebGl.getContext('webgl');
         isWebGl = (isWebGl instanceof WebGLRenderingContext);
+        var launchJourneyButton = $('#launch-journey');
         if (isWebGl) {
             hello = new Portfolioscene_1.PortfolioScene('portfolio', 'cube', rendererOptions, new Camera_1.Camera(cameraOptions));
             hello.launch();
+            launchJourneyButton.on('click', initKonami);
             document.addEventListener('journeysceneunloaded', disableKonami);
             var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
             var n = 0;
@@ -960,6 +961,7 @@
             substitute.setAttribute('class', 'banner-substitute');
             substitute.innerHTML = '<img src="/images/cubeanimated.gif">';
             document.getElementById('cube').appendChild(substitute);
+            launchJourneyButton.addClass('hidden');
         }
         function disableKonami() {
             $('#cube').removeClass('konamied');
@@ -1036,6 +1038,5 @@
             document.onkeydown = null;
         }
     });
-    
+
     },{"./Classes/GameScene":5,"./Classes/Portfolioscene":6,"./Classes/engine/Camera":7,"./Classes/engine/Player":9}]},{},[12]);
-    

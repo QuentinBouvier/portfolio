@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="projectTitle" content="KBAES">
+    <meta name="thumbnail" content="./pages/works/kbaesThumb.png">
+    <meta name="thumbnailAlt" content="Kbaes thumbnail">
+    <meta name="order" content="12">
+
+    <title>Journey</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Lora" rel="stylesheet">
+    <link rel="stylesheet" href="/css/projects.css">
+</head>
+
+<body>
+
+    <h3>Décembre 2018</h3>
+    <h1>Keep Babling and Everyone Survives</h1>
+
+    <a href="https://github.com/keep-babbling-and-everyone-survives/kbaes-api" target="_blank">Api</a>
+    <a href="https://github.com/keep-babbling-and-everyone-survives/kbaes-front" target="_blank">Site</a>
+    <a href="https://github.com/keep-babbling-and-everyone-survives/kbaes-embedded" target="_blank">Embarqué</a>
+
+    <p>Résultat du projet intersession de l'It-Akademy, <b>par équipe</b> de 5. <b>Création d'un jeu</b> inspiré de
+        "Keep talking and nobody explodes". Un jeu collaboratif asymmétrique: Un joueur devant le système embarqué voit
+        une combinaison de LED s'éclairer. Il la communique au joueur devant l'écran qui doit retrouver la combinaison
+        dans une liste. Il donne alors une combinaison de boutons au premier joueur qui l'applique sur son mini clavier
+        (3 boutons). Le jeu continue tant qu'il reste des vies aux joueurs, qu'ils n'ont pas résolu toutes les
+        combinaisons, et que le temps n'est pas écoulé.</p>
+    <p>Le rendu s'articule autour de 3 projets: Une api, un site statique et un raspberry avec board électronique. L'api
+        gère la distribution des ressources (Réponses possibles) et le déroulement du jeu. Le site permet de lancer une
+        partie et de suivre le déroulé. Il affiche également les réponses de manière cryptique. La board attachée au
+        raspberry comporte 4 leds, 3 boutons et un écran LCD 16x2. La séquence de led annonce une combinaison de boutons
+        attendue qu'on ne peut deviner sans le site. L'écran LCD affiche le temps et les vies restantes.</p>
+    <p>A chaque étape du jeu, l'api définit l'état des entités et leur communique grâce à <b>Laravel echo server</b>.
+        L'envoi de donnée est fait vers le site avec <b>socket.io</b>, et vers la board avec <b>redis</b>. A chaque
+        changement est notifié à l'api via une route HTTP.</p>
+    <p>Je suis intervenu sur ce projet en tant que <b>Lead Dev</b>, responsable de la <b>conception</b> et de la
+        définission des tâches. J'avais aussi le rôle de <b>Gameplay programmer</b>, en charge des tâches en rapport
+        avec le déroulement du jeu. Je suis intervenu sur les devs suivants (Les lignes marquées d'un * concernent des
+        tâches réalisées à plusieurs):</p>
+    <ul>
+        <li>Création du serveur, installation des services nécessaires (LAMP + redis)</li>
+        <li>Api:
+            <ul>
+                <li>Design DB*</li>
+                <li>Routes de création de partie</li>
+                <li>Routes de changement d'étape de jeu</li>
+                <li>Notification des clients (events)</li>
+                <li>Calcul des étapes du jeu</li>
+            </ul>
+        </li>
+        <li>Board:
+            <ul>
+                <li>Système de communication avec l'api</li>
+                <li>Lanceur de séquences (affichage led, écoute boutons)</li>
+                <li>Affichage écran LCD*</li>
+            </ul>
+        </li>
+        <li>Site:
+            <ul>
+                <li>Interfaçage du site et de l'api*</li>
+                <li>Affichage des réponses sur le site*</li>
+                <li>Modules d'affichage de l'état du jeu (vies, timer)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Technos:</h3>
+    <ul>
+        <li>Apache - PHP 7 - Mysql</li>
+        <li>Laravel</li>
+        <li>Redis</li>
+        <li>Websocket</li>
+        <li>React</li>
+        <li>Python
+            <ul>
+                <li>Tornado</li>
+                <li>GPIO</li>
+            </ul>
+        </li>
+        <li>Raspberry 3+</li>
+    </ul>
+</body>
+
+</html>

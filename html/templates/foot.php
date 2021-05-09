@@ -1,6 +1,7 @@
 <footer id="contact">
     <div class="footer-background flex-container flex-columns flex-items-center">
         <h3>Me contacter: </h3>
+        <p>Envoyez moi un message sur <a href="https://www.linkedin.com/messaging/thread/new/?recipient=quentin-bouvier-2449a914b">Linkedin</a> ou un mail à <i>recrutez-moi [at] quentinbouvier.fr</i></p>
         <form class="contact-form flex-container flex-columns flex-items-center" action="../pages/contact.php" method="post">
             <?php
                 if (isset($_SESSION["mailResult"]))
@@ -17,10 +18,10 @@
                 $contentHolder = (isset($_SESSION["contactContent"])) ? $_SESSION["contactContent"] : "";
                 unset($_SESSION["contactContent"]);
             ?>
-            <label><input type="text" name="name" placeholder="Votre nom (Obligatoire)" <?= $nameHolder; ?>></label>
-            <label><input type="text" name="mail" placeholder="Addresse mail (Obligatoire)" <?= $mailHolder; ?>></label>
-            <label><input type="text" name="phone" placeholder="n° de téléphone" <?= $phoneHolder; ?>></label>
-            <label><textarea name="content" cols="30" rows="10" placeholder="Votre message (Obligatoire)"><?= $contentHolder; ?></textarea></label>
+            <label><input type="text" name="name" placeholder="Votre nom (Obligatoire)" <?= $nameHolder; ?> disabled></label>
+            <label><input type="text" name="mail" placeholder="Addresse mail (Obligatoire)" <?= $mailHolder; ?> disabled></label>
+            <label><input type="text" name="phone" placeholder="n° de téléphone" <?= $phoneHolder; ?> disabled></label>
+            <label><textarea name="content" cols="30" rows="10" placeholder="Votre message (Obligatoire)" disabled><?= $contentHolder; ?></textarea></label>
             <label class="flex-container flex-align-center">
             <?php 
                 $image = imagecreate(50, 20); //create blank image (width, height)
@@ -36,11 +37,11 @@
                 ob_end_clean();
                 echo '<img class="captcha" src="data:image/png;base64,'.base64_encode($imagedata).'"/>';
             ?>
-            <input type="text" name="captcha" placeholder="Saisir le captcha">
+            <input type="text" name="captcha" placeholder="Saisir le captcha" disabled>
             </label>
-            <input type="submit" name ="submit" value="Envoyer">
+            <input type="submit" name ="submit" value="Envoyer" disabled>
         </form>
-        <div class="copyrights">Copyrights © 2017-2018 Quentin Bouvier / Babbleprod. Contenu sous licence <a href="https://github.com/QuentinBouvier/portfolio/blob/master/LICENCE" target="_blank">MIT</a>. Sources available <a href="https://github.com/QuentinBouvier/portfolio" target="_blank">here</a>.</div>
+        <div class="copyrights">Copyrights © 2017-2021 Quentin Bouvier. Contenu sous licence <a href="https://github.com/QuentinBouvier/portfolio/blob/master/LICENCE" target="_blank">MIT</a>. Sources available <a href="https://github.com/QuentinBouvier/portfolio" target="_blank">here</a>.</div>
     </div>
 </footer>
 
